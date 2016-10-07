@@ -88,7 +88,7 @@
   <gap:plugin name="org.apache.cordova.file" />
   <gap:plugin name="org.apache.cordova.file-transfer" />
   <gap:plugin name="org.apache.cordova.network-information" />
-  <gap:plugin name="org.apache.cordova.splashscreen.SplashScreen" />
+  <gap:plugin name="org.apache.cordova-plugin-splashscreen" />
   <gap:plugin name="org.apache.cordova.vibration" />
 
   <!-- Third party plugins -->
