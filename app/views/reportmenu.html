@@ -1,0 +1,158 @@
+﻿
+<link href="css/setting.css" rel="stylesheet" />
+
+<div class="title-header">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 class="titletext">All Reports</h4>
+        </div>
+    </div>
+</div>
+
+<a href="#/FindItems" class="newbackbtn ng-scope"> <i class="fa fa-arrow-left"></i> </a>
+
+<div class="top50">
+    <br />
+    <a href="#/currentinventory" ng-click="GoTo('/currentinventory')" class="waves-effect waves-light btn-large primary-color width-100 animated bouncein delay-6">
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> Current Inventory
+            </div>
+          
+            <div class="col-xs-3">
+                <div ng-if="loadcounter1==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+              
+                <div ng-if="loadcounter1==true">
+                    {{InventoryViews.length}}
+                </div>
+               
+            </div>
+
+        </div>
+
+    </a>
+
+    <a href="#/inventorysummary" style="color:#fff" class="waves-effect waves-light btn-large accent-color width-100 animated bouncein delay-6">
+
+
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> Inventory summary
+
+            </div>
+
+
+            <div class="col-xs-3">
+                <div ng-if="loadcounter6==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+
+                <div ng-if="loadcounter6==true">
+                    {{SummaryViews.length}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </a>
+
+    <a href="#/inventoryactivity" class="waves-effect waves-light btn-large btn-danger width-100 animated bouncein delay-6">
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> Inventory Activity
+
+            </div>
+           
+
+            <div class="col-xs-3">
+                <div ng-if="loadcounter2==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+
+                <div ng-if="loadcounter2==true">
+                    {{ActivityViews.length}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </a>
+
+
+    <a href="#/GlobalRestock" class="waves-effect btn-large waves-light accent-color width-100 animated bouncein delay-6">
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> Global Restock
+
+            </div>
+
+            <div class="col-xs-3">
+                <div ng-if="loadcounter4==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+                <div ng-if="loadcounter4==true">
+                    {{GlobalViews.length}}
+                </div>
+
+            </div>
+        </div>
+
+    </a>
+
+    <a href="#/LocalRestock" class="waves-effect btn-large waves-light btn-warning  width-100 animated bouncein delay-6">
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> Local Restock
+            </div>
+
+            <div class="col-xs-3">
+                <div ng-if="loadcounter5==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+
+                <div ng-if="loadcounter5==true">
+                    {{LocalViews.length}}
+                </div>
+            </div>
+        </div>
+    </a>
+
+    <a href="#/itemreport" class="waves-effect waves-light btn-large btn-success width-100 animated bouncein delay-6">
+        <div class="row">
+            <div class="col-xs-9">
+                <i class="fa fa-th-list"></i> All Items
+            </div>
+           
+            <div class="col-xs-3">
+                <div ng-if="loadcounter3==false">
+                    <img style="height:35px; width:35px;" src="img/loader1.gif" alt="Alternate Text" />
+                </div>
+
+                <div ng-if="loadcounter3==true">
+                    {{ItemViews.length}}
+                </div>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+<a ng-click="Openbottommenu()" class="menubtn waves-effect">
+    <i class="fa fa-bars"></i>
+</a>
+
+<div id="bottommenumodal" class="modal bottommenu fade">
+    <div class="modal-body">
+        <ul class="animated slideInUp selectAction">
+            <li> <a href="#/inventory"><span class="newinv">Add Inventory</span></a>  <a href="#/inventory" class=" waves-effect btn-warning btn"> <i class="fa fa-plus"></i> </a></li>
+            <li> <a href="#/Location"><span class="newinv">Manage Location</span></a>  <a href="#/Location" class=" waves-effect btn-success btn"> <i class="fa fa-map-marker"></i> </a></li>
+            <li> <a href="#/status"><span class="newinv">Manage status</span></a>  <a href="#/status" class=" waves-effect btn-primary btn"> <i class="fa fa-check-circle-o"></i> </a></li>
+            <li class="bottomlink"><span data-dismiss="modal">Close</span><a style="background:#bbb !important;" class=" waves-effect btn-primary btn decrease" data-dismiss="modal"> <i class="fa fa-times"></i>  </a></li>
+        </ul>
+    </div>
+</div>
