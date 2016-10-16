@@ -10,6 +10,16 @@ app.controller('indexController', ['$scope', 'localStorageService', 'authService
         }
     }
 
+    $scope.retry = function () {
+
+        $(".mainloader").show();
+
+        setTimeout(function () {
+            $(".mainloader").hide();
+        },5000)
+
+    }
+
 
     $scope.currentactiveaccount = function (AccountName) {
         localStorageService.set("ActivityCart", "");

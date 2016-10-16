@@ -476,6 +476,21 @@
                 color: #333 !important;
                 font-size: 15px !important;
             }
+
+        .mainloader {
+
+            position: fixed;
+    z-index: 100;
+    top: 42%;
+    margin: 0 auto;
+    text-align: center;
+    width: 51px;
+    padding: 10px;
+    background: #fff;
+    left: 43%;
+    border-radius: 100%;
+    display:none;
+        }
     </style>
 
 
@@ -484,9 +499,15 @@
 </head>
 <body data-ng-controller="indexController">
     <!-- Sidebar -->
+
+
+    <div class="mainloader">
+        <img src="img/loader.gif" alt="Alternate Text" />
+    </div>
+
     <div class="nointernet">
         <h3>No Connection</h3>
-        <p>RETRY</p>
+        <p data-ng-click="retry();">RETRY</p>
     </div>
 
     <div class="animated" id="mysmallModal">
