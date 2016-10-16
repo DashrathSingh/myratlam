@@ -21,6 +21,7 @@ background-color: rgba(0,0,0,0.7);
     position: relative;
     font-family: cursive;
     margin-top: -29px;
+    font-size:17px;
 
     }
 
@@ -92,11 +93,109 @@ background-color: rgba(0,0,0,0.7);
         margin-right:0px;
     }
 
+    .leftarrow {
+        position:absolute;
+        z-index:100;
+    }
+
+    
+
+    .mytextbox {
+        width:100%;
+        padding-top:7px;
+        padding-bottom:7px;
+    }
+
+   .searcharea {
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    height: 56px;
+    background: #eee;
+    z-index: 10;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+    .input-group-addon, .input-group-btn {
+        width:auto;
+    }
+
+
    
+
+    .widget-products li .product {
+      
+        margin-left: 80px;
+        margin-top: 7px;
+        border-bottom:1px solid #ebebeb;
+        padding-bottom:10px;
+    }
+
+    .widget-products li > a {
+        min-height: 80px;
+        display: block;
+        width: 100%;
+        color: #344644;
+        padding: 0px 3px;
+        position: relative;
+        -webkit-transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
+        transition: border-color 0.1s ease-in-out 0s,background-color 0.1s ease-in-out 0s;
+    }
+     .widget-products {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        min-height: 175px;
+        background: #fff;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+     .img {
+    height: 75px;
+    width: 75px;
+    border: 1px solid #ccc;
+    white-space: nowrap;
+    text-align: center;
+    margin: 1em 0;
+    float: left;
+    margin-top: 5px;
+  
+  
+  
+}
+
+    .listtable td {
+
+        padding-bottom:7px;
+    }
+
+    .listtable img {
+
+        border-radius:7px;
+    }
+
+    .listtable h5 {
+        color:#989393;
+    }
 </style>
 
 
+<div style="display:none;" class="searcharea">
 
+    <div style="margin-top:7px;" class="input-group">
+        <span data-ng-click="showheader()" class="input-group-addon leftarrow"> 
+            <i class="fa fa-arrow-left"></i>
+        </span>
+        <input placeholder="Type category to search" style="padding-left:60px; height:42px;" type="text" class="mytextbox" name="name" value="" />
+    </div>
+
+  
+</div>
 
 
 
@@ -107,6 +206,7 @@ background-color: rgba(0,0,0,0.7);
 
 <div class="swiper-slide green">Auto <small>Mobiles</small> </div>
 <div class="swiper-slide blue">Contractors</div>
+    <div class="swiper-slide indigo">Personal care</div>
 
 </div>
  
@@ -123,8 +223,8 @@ background-color: rgba(0,0,0,0.7);
       </div>
       <div style="padding-right:3px;" class="col-xs-4">
           <div class="pull-right">
-              <i style="margin-right:10px;" class="fa fa-th-list"></i>
-                <i class="fa fa-th"></i>
+              <i data-ng-click="showlist()" style="margin-right:10px;" class="fa fa-th-list"></i>
+                <i data-ng-click="showgrid()" class="fa fa-th"></i>
           </div>
       </div>
         </div>
@@ -132,7 +232,7 @@ background-color: rgba(0,0,0,0.7);
  
 
 
-<div class="row cat">
+<div data-ng-if="gridview==true" class="row cat">
     <div class="col-md-2 col-xs-6">
         <div style="width:100%" >
             <img style="width:100%;" src="img/21.jpg" alt="Alternate Text" />
@@ -653,6 +753,384 @@ background-color: rgba(0,0,0,0.7);
     </div>
     
     
+</div>
+
+
+
+<div style="padding-left:5px; padding-right:5px;" data-ng-if="listview==true">
+    
+    <table class="listtable" style="width:100%; background:#eaeaea;">
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+         <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Education</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/22.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">HOTEL</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/24.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+
+        <tr>
+            <td style="width:85px;">
+                  <img style="width:75px; height:75px;" src="img/21.jpg" alt="Alternate Text" />
+            </td>
+             <td>
+                 <h3 style="margin-bottom:5px; margin-top:1px">Restaurants</h3>
+                 <h5>Category description here !!</h5>
+             </td>
+        </tr>
+    </table>
 </div>
 
 

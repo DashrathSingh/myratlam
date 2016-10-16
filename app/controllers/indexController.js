@@ -38,6 +38,23 @@ app.controller('indexController', ['$scope', 'localStorageService', 'authService
         return _string==""?true:false;
     }
 
+
+    $scope.showsearch = function () {
+
+        $("#toolbar").hide();
+        $(".searcharea").show();
+
+        $(".mytextbox").focus();
+      
+
+    }
+
+
+
+
+
+
+
     $scope.GetTrimmedStringData = function (_string) {
         if (_string != null && _string != undefined) {
             _string = $.trim(_string);

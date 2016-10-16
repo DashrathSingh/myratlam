@@ -15,6 +15,28 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     $scope.InIt();
 
+    $scope.listview = false;
+    $scope.gridview = true;
+
+    $scope.showheader = function () {
+
+        $(".searcharea").hide();
+        $("#toolbar").show();
+
+    }
+
+    $scope.showlist = function () {
+        $scope.gridview = false;
+        $scope.listview = true;
+       
+    }
+
+    $scope.showgrid = function () {
+        $scope.gridview = true;
+        $scope.listview = false;
+
+    }
+
     
 
     $scope.login = function ()

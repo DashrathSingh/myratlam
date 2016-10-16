@@ -14,7 +14,7 @@
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <link href="css/button.css" rel="stylesheet" type="text/css">
 
- 
+
 
 
     <link href="content/css/loading-bar.css" rel="stylesheet" />
@@ -207,14 +207,29 @@
 
         .nointernet {
             width: 100%;
-            color: #8a6d3b;
-            background-color: #fcf8e3;
+            color: #fff;
+            background-color: #333;
             border: #fcf8e3;
-            position: absolute;
-            top: 0px;
+            position: fixed;
+            font-size: 12px;
+            bottom: 0px;
             z-index: 1;
             display: none;
             padding-top: 0px;
+        }
+
+        .nointernet h3 {
+
+                font-size: 16px;
+    padding-left: 5px;
+    float: left;
+        }
+
+        .nointernet p {
+             float: right;
+    padding-right: 10px;
+    padding-top: 17px;
+    color: #ea9106;
         }
 
         .removeImage {
@@ -228,17 +243,17 @@
             line-height: 30px;
         }
 
-        
 
 
 
-     
 
-      
 
-     
 
-       
+
+
+
+
+
 
         .btn {
             font-size: 16px;
@@ -462,50 +477,26 @@
                 font-size: 15px !important;
             }
     </style>
-    <style>
-        .input-group-addon {
-            background: #fff;
-            border: transparent;
-            padding-top: 0px;
-            padding-bottom: 0px;
-            padding-left: 5px;
-            padding-right: 5px;
-        }
 
-
-            .input-group-addon i {
-                color: #fff !important;
-                background: #2196F3;
-                padding: 12px;
-                font-size: 14px !important;
-                border-radius: 100%;
-                cursor: pointer;
-            }
-
-            .input-group-addon .fa-barcode {
-                padding-left: 10px;
-                padding-right: 13px;
-            }
-    </style>
 
 
 
 </head>
 <body data-ng-controller="indexController">
     <!-- Sidebar -->
-    <div class="nointernet alert alert-danger">
-        <h3><i class="fa fa-exclamation-triangle"></i> No Internet Connection</h3>
-        <p>Sorry, no internet connectivity detected. Please reconnect and try again.</p>
+    <div class="nointernet">
+        <h3>No Connection</h3>
+        <p>RETRY</p>
     </div>
 
     <div class="animated" id="mysmallModal">
 
         <div class="errorcontent">
 
-            <i class="fa fa-check-circle" style="font-size: 40px; color: #fafafa;"></i> <br />
+            <i class="fa fa-check-circle" style="font-size: 40px; color: #fafafa;"></i>
+            <br />
 
-            <span style="font-size:20px;font-weight:300;color:#fafafa;" id="DataText">
-                Saved
+            <span style="font-size: 20px; font-weight: 300; color: #fafafa;" id="DataText">Saved
             </span>
 
         </div>
@@ -516,10 +507,9 @@
     <div id="mysmallModalSave" class="animated">
         <div class="errorcontent">
 
-            <img style="max-height:50px; max-width:50px;" src="img/loader1.gif" />
+            <img style="max-height: 50px; max-width: 50px;" src="img/loader1.gif" />
 
-            <span style="display:block;font-size:20px;font-weight:300;color:#fafafa;">
-                Saving..
+            <span style="display: block; font-size: 20px; font-weight: 300; color: #fafafa;">Saving..
             </span>
 
         </div>
@@ -530,8 +520,7 @@
         <div class="waitingContent">
 
 
-            <span style="display:block;color:#fafafa;">
-                Loading..
+            <span style="display: block; color: #fafafa;">Loading..
             </span>
 
         </div>
@@ -539,12 +528,11 @@
 
     <div class="animated" id="myloginModal">
 
-        <div class="errorcontent" style="width:122px;background:#000;">
+        <div class="errorcontent" style="width: 122px; background: #000;">
 
-            <img style="max-height:50px; max-width:50px;" src="img/loader1.gif" />
+            <img style="max-height: 50px; max-width: 50px;" src="img/loader1.gif" />
 
-            <span style="display:block;font-size:20px;font-weight:300;color:#fafafa;">
-                Signing in..
+            <span style="display: block; font-size: 20px; font-weight: 300; color: #fafafa;">Signing in..
             </span>
 
         </div>
@@ -552,14 +540,13 @@
     </div>
 
 
-    <div style="display:none;" class="animated" id="mysignupModal">
+    <div style="display: none;" class="animated" id="mysignupModal">
 
-        <div class="errorcontent" style="width:122px;background:#000;">
+        <div class="errorcontent" style="width: 122px; background: #000;">
 
-            <img style="max-height:50px; max-width:50px;" src="img/loader1.gif" />
+            <img style="max-height: 50px; max-width: 50px;" src="img/loader1.gif" />
 
-            <span style="display:block;font-size:20px;font-weight:300;color:#fafafa;">
-                Creating Account....
+            <span style="display: block; font-size: 20px; font-weight: 300; color: #fafafa;">Creating Account....
             </span>
 
         </div>
@@ -571,18 +558,18 @@
 
     <div id="toolbar">
         <div class="open-left" id="side-left">
-           <i class="fa fa-navicon"></i>
+            <i class="fa fa-navicon"></i>
         </div>
-   
-          <span style="color:#333;" class="title">Nathdwara Mart</span>
+
+        <span style="color: #333;" class="title">Nathdwara Mart</span>
 
 
         <div class="dropdown open-right">
-            <a class="dropdown-toggle "><i class="fa fa-search"></i></a>
+            <a data-ng-click="showsearch()" style="padding: 12px;" class="dropdown-toggle "><i class="fa fa-search"></i></a>
         </div>
-        
+
     </div>
-   
+
 
 
     <div class="container" id="viewdata">
@@ -599,15 +586,14 @@
             <div class="sidenav-header primary-color">
 
                 <div class="nav-avatar">
-                  
+
                     <div class="avatar-body">
-                    
                     </div>
                 </div>
             </div>
         </li>
-   
-      
+
+
     </ul>
 
 
@@ -624,10 +610,10 @@
             <!-- Facebook -->
             <ul>
 
-                <li><a ng-click="logOut()" class="no-child signoutbtn"><i class="fa fa-sign-out"></i> Sign out</a></li>
+                <li><a ng-click="logOut()" class="no-child signoutbtn"><i class="fa fa-sign-out"></i>Sign out</a></li>
             </ul>
             <hr />
-            <p style="font-size:14px; text-align:justify">
+            <p style="font-size: 14px; text-align: justify">
                 Online Inventory Management Software You Can Customize,
                 Share, and Access From
                 Anywhere Before you spend money on special fonts or software, you should take a look at one of the best hidden native features of Microsoft Office—creating and printing barcodes
@@ -636,11 +622,11 @@
         </li>
         <li id="sidebar2" class="p-10">
             <!-- Chat -->
-            <div style="line-height:25px;">
+            <div style="line-height: 25px;">
 
-                <div> <strong> 662 E. Elliott Ave Saint Louis </strong></div>
+                <div><strong>662 E. Elliott Ave Saint Louis </strong></div>
 
-                <div> support@clearlyinventory.com</div>
+                <div>support@clearlyinventory.com</div>
 
                 <div>800-300-0160 </div>
 
@@ -651,23 +637,26 @@
         </li>
     </ul>
 
-    <div style="background:#fff; padding:0px;" id="modalerror" class="modal bottom-sheet animated bounceIn">
-        <div style="padding-top:0px; padding-bottom:0px;" class="modal-header">
+    <div style="background: #fff; padding: 0px;" id="modalerror" class="modal bottom-sheet animated bounceIn">
+        <div style="padding-top: 0px; padding-bottom: 0px;" class="modal-header">
 
-            <h4 style="color:brown; font-size:14px;">Opps some thing went wrong !!</h4>
+            <h4 style="color: brown; font-size: 14px;">Opps some thing went wrong !!</h4>
 
         </div>
 
-        <div style="padding:5px;" class="modal-body">
-            <h4 style="padding-left: 15px; color: brown; font-size: 14px; " id="errortext">Time out</h4>
+        <div style="padding: 5px;" class="modal-body">
+            <h4 style="padding-left: 15px; color: brown; font-size: 14px;" id="errortext">Time out</h4>
 
 
-            <a ng-click="logOut()" style="padding-left:15px; margin-top:20px; font-size:16px;">Log out</a>
-            <br /><br />
+            <a ng-click="logOut()" style="padding-left: 15px; margin-top: 20px; font-size: 16px;">Log out</a>
+            <br />
+            <br />
 
             <a ng-click="reload()" style="padding-left: 15px; font-size: 16px;">Refresh page</a>
 
-            <div><br /></div>
+            <div>
+                <br />
+            </div>
 
 
         </div>
@@ -704,7 +693,7 @@
     <script src="scripts/loading-bar.min.js"></script>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="scripts/ng-cordova.js"></script>
-   
+
     <script src="scripts/toastr.js"></script>
     <script src="scripts/bootbox.js"></script>
     <script src="scripts/jquery.animate_from_to-1.0.js"></script>
@@ -723,7 +712,7 @@
     <!-- Load controllers -->
     <script src="app/controllers/indexController.js?v=2"></script>
     <script src="app/controllers/loginController.js?v=2"></script>
-   
+
     <!-- Load custom filters -->
     <!-- Load custom directives -->
 
@@ -1139,8 +1128,7 @@
             $cordovaSplashscreen.hide();
         }
 
-        function onOffline()
-        {
+        function onOffline() {
 
             $(".nointernet").show();
         }
