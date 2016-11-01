@@ -240,8 +240,9 @@ background-color: rgba(0,0,0,0.7);
       </div>
       <div style="padding-right:7px;" class="col-xs-4">
           <div class="pull-right">
-              <i data-ng-click="showlist()" style="margin-right:10px;" class="fa fa-th-list"></i>
                 <i data-ng-click="showgrid()" class="fa fa-th"></i>
+              <i data-ng-click="showlist()" style="margin-right:10px;" class="fa fa-th-list"></i>
+              
           </div>
       </div>
         </div>
@@ -250,20 +251,21 @@ background-color: rgba(0,0,0,0.7);
 
  
 <div data-ng-if="gridview==true" class="cat">
-    <div data-ng-if="isload==false || isload=='false'" class="row"></div>
+    <div data-ng-if="isload==false || isload=='false'" class="row">
     <div data-ng-repeat="obj in categories" class="col-md-2 col-xs-6">
-        <div style="width:100%" >
+        <div data-ng-click="gotoshop()" style="width:100%" >
             <img style="width:100%; height:150px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
             <img data-ng-if="obj.ImageSrc==null || obj.ImageSrc==''" style="width:100%; height:150px;" src="img/21.jpg" alt="Alternate Text" />
             <p>{{obj.Name}}</p>
         </div>
     </div>
+        </div>
 </div>
 
 
 <div style="padding-left:5px; padding-right:5px;" data-ng-if="listview==true && isload==false"">
     
-    <table class="listtable" style="width:100%; background:#eaeaea;">
+    <table data-ng-click="gotoshop()" class="listtable" style="width:100%; background:#eaeaea;">
         <tr data-ng-repeat="obj in categories">
             <td style="width:85px;">
                   <img style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />

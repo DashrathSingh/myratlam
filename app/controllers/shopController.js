@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('loginController', ['$scope','localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope,localStorageService, $location, authService, ngAuthSettings) {
+app.controller('shopController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
 
 
     $scope.categories = [];
@@ -73,15 +73,9 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             paginationClickable: true
         });
 
-        $scope.GetCategories();
+    
 
       
-    }
-
-
-    $scope.gotoshop = function () {
-        $location.path('/shop');
-        $scope.$apply();
     }
 
     $scope.InIt();

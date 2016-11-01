@@ -10,9 +10,12 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/login.html"
     });
 
+    $routeProvider.when("/shop", {
+        controller: "shopController",
+        templateUrl: "app/views/shop.html"
+    });
 
 
-   
 
     $routeProvider.otherwise({ redirectTo: "/login" });
 
