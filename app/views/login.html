@@ -191,6 +191,28 @@ background-color: rgba(0,0,0,0.7);
     .mytextbox:focus {
     box-shadow:none !important;
     }
+
+    .cd-top {
+    height: 47px;
+    width: 47px;
+    color: #fff !important;
+    background: #333333;
+    position: fixed;
+    left: 25px;
+    bottom: 25px;
+    border-radius: 100%;
+    z-index: 100;
+    font-size: 25px;
+    padding-left: 12px;
+    padding-top: 4px;
+    opacity: 1;
+    visibility: hidden;
+}
+
+    .cd-top.cd-is-visible {
+    visibility: visible;
+  
+}
 </style>
 
 
@@ -211,7 +233,7 @@ background-color: rgba(0,0,0,0.7);
 
 
 <div data-ng-if="isload==true || isload=='true'" class="mainloader">
-        <img src="img/loader.gif" alt="Alternate Text" />
+        <img style="width:35px;" src="img/loader.gif" alt="Alternate Text" />
     </div>
 
 
@@ -240,8 +262,8 @@ background-color: rgba(0,0,0,0.7);
       </div>
       <div style="padding-right:7px;" class="col-xs-4">
           <div class="pull-right">
-                <i data-ng-click="showgrid()" class="fa fa-th"></i>
-              <i data-ng-click="showlist()" style="margin-right:10px;" class="fa fa-th-list"></i>
+                <i style="margin-right:10px;" data-ng-click="showgrid()" class="fa fa-th"></i>
+              <i data-ng-click="showlist()" style="margin-right:5px;" class="fa fa-th-list"></i>
               
           </div>
       </div>
@@ -280,4 +302,28 @@ background-color: rgba(0,0,0,0.7);
 </div>
 
 
+<a class="cd-top cd-is-visible" onclick="scrollToTop()" title="Go to top"><i class="fa fa-chevron-up"></i></a>
+<script>
 
+    var offset = 50;
+    //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+    var offset_opacity = 1200;
+    //duration of the top scrolling animation (in ms)
+    var scroll_top_duration = 700;
+    //grab the "back to top" link
+    var $back_to_top = $('.cd-top');
+
+    function scrollToTop() {
+
+        $('html, body').animate({ scrollTop: 0 }, 500, 'linear');
+    }
+
+
+
+    $(window).scroll(function () {
+        ($(this).scrollTop() > offset) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+        if ($(this).scrollTop() > offset_opacity) {
+            $back_to_top.addClass('cd-fade-out');
+        }
+    });
+</script>
