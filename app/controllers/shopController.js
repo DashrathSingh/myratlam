@@ -2,16 +2,19 @@
 app.controller('shopController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
 
 
-    $scope.categories = [];
+    $scope.shops = [];
+    $scope.Categories = [];
     $scope.filterArray = [];
     $scope.Searchstring = "";
-    $scope.sortCol = "CreatedDate";
+    $scope.sortCol = "UpdatedDate";
     $scope.sortDir = "desc";
     var _pageSize = 30;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
     $scope.CurrentRecordCount = 0;
+    $scope.CurrentShopID = 0;
+    $scope.ShopImages = [];
     $scope.ImageList = [];
     var FileName = "";
     var StreamData = "";
@@ -24,109 +27,238 @@ app.controller('shopController', ['$scope', 'localStorageService', '$location', 
     $scope.isload = true;
 
 
+    $scope.Currentcategory = localStorageService.get("CatID");
 
-    $scope.Category = { ID: 0, Name: "", Status: "", Sort: "", ImageSrc: "" }
-    $scope.GetCategories = function () {
+    $("#Choosepic").click(function () {
+        $("#file").trigger("click");
+    })
+    $scope.Shop = {
+        ID: 0,
+        Name: "",
 
-        $scope.isload = true;
-        var _myObject = { pagenumber: $scope.CurrentPage, sortCol: $scope.sortCol, sortDir: $scope.sortDir, filterArray: $scope.filterArray, Searchstring: $scope.Searchstring, pagesize: _pageSize };
+        Address1: "",
+        Address2: "",
+
+        Address3: "",
+
+        Contact1: "",
+        Contact2: "",
+
+        Contact3: "",
+
+        latitude: "",
+
+        longitude: "",
+
+        Email: "",
+
+        CityID: 2,
+
+        CategoryID: 0,
+
+        Description: "",
+
+        AboutUs: "",
+
+        Status: "",
+
+        IsVerified: true,
+
+        speciality: "",
+
+        OwnerName: "",
+
+        OwnerImageSrc: "",
+
+        Sort: 0,
+        AvailableDays: "",
+
+        AvailableTime: "",
+
+        WebsiteUrl: "",
+
+        Rating: 1
+
+        //CreatedDate: "",
+
+        //UpdatedDate: "",
+
+        //RegistrationDate: "",
+
+    }
+
+  
+ 
+    $scope.GetShops = function () {
+
+        alert($scope.Currentcategory);
+        var _myObject = { IsMobile: true, categoryID: $scope.Currentcategory, categoryName: "", pagenumber: $scope.CurrentPage, sortCol: $scope.sortCol, sortDir: $scope.sortDir, filterArray: $scope.filterArray, Searchstring: $scope.Searchstring, pagesize: _pageSize };
         $.ajax({
-            url: serviceBase + "/api/Categories/GetAllCategories",
+            url: serviceBase + "/api/Shops/GetAllShops",
             data: JSON.stringify(_myObject),
             type: 'POST',
             contentType: 'application/json',
             dataType: 'json',
             success: function (result) {
-
-               
-
                 $scope.isload = false;
+
+                debugger;
                 if (result.Success) {
-                    $scope.categories = result.Data;
+                    $scope.shops = result.Data;
                     $scope.CurrentPage = result.CurrentPage;
                     $scope.TotalPages = result.TotalPages;
                     $scope.TotalRecords = result.TotalRecords;
                     $scope.CurrentRecordCount = result.CurrentRecordCount;
+                    console.log($scope.shops)
                 }
                 else {
-                    // toastr.error("Error occurred");
-                    //  toastr.error(result.ex);
+                    toastr.error("Error occurred");
+                    toastr.error(result.ex);
                 }
 
                 CheckScopeBeforeApply();
 
             },
             error: function (req) {
+                $scope.isload = false;
             },
             complete: function () {
+                $scope.isload = false;
 
 
             }
         });
     }
 
-    $scope.InIt = function ()
-    {
 
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true
-        });
-
-    
-
-      
+    $scope.gotodetail = function(obj) {
+        localStorageService.set("detail", obj);
+        $location.path('/detail');
+        $scope.$apply();
     }
 
-    $scope.InIt();
+   
+    $scope.ChangePage = function (Type) {
+        if (Type == 1) {
+            $scope.CurrentPage = $scope.CurrentPage + 1;
+        } else {
+            $scope.CurrentPage = $scope.CurrentPage - 1;
 
-    $scope.listview = false;
-    $scope.gridview = true;
+        }
+        CheckScopeBeforeApply();
+        $scope.GetShops();
+    }
+    $scope.sortByCol = function (sortCol) {
+        $scope.sortCol = sortCol;
+        if ($scope.sortDir == "asc") {
+            $scope.sortDir = "desc";
 
-    $scope.showheader = function () {
-
-        $(".searcharea").hide();
-        $("#toolbar").show();
-
+        }
+        else {
+            $scope.sortDir = "asc";
+        }
+        CheckScopeBeforeApply();
+        $scope.GetShops();
     }
 
-    $scope.showlist = function () {
-        $scope.gridview = false;
-        $scope.listview = true;
-       
-    }
 
-    $scope.showgrid = function () {
-        $scope.gridview = true;
-        $scope.listview = false;
+    $scope.range = function () {
 
-    }
+        var rangeSize = 4;
 
-    
+        if (rangeSize > $scope.TotalPages) {
+            rangeSize = $scope.TotalPages;
+        }
 
-    $scope.login = function ()
-    {
-        
-        localStorageService.set("ActivityCart", "");
+        var ps = [];
 
-        localStorageService.set("SelectedAction", "");
-        localStorageService.set("lastlogindata", "");
+        var start;
 
+        start = $scope.CurrentPage;
 
-        authService.login($scope.loginData).then(function (response)
-        {
-           
-            $scope.GetProfileData();
-            //$location.path('/FindItems');
-            $location.path('/Accounts');
-            
-        },
-         function (err) {
-             $scope.message = err.error_description;
-             playBeep();
-         });
+        if (start > $scope.TotalPages - rangeSize) {
+
+            start = $scope.TotalPages - rangeSize + 1;
+
+        }
+
+        for (var i = start; i < start + rangeSize; i++) {
+
+            ps.push(i);
+
+        }
+
+        return ps;
+
     };
 
+
+    $scope.prevPage = function () {
+
+        if ($scope.CurrentPage > 1) {
+
+            $scope.CurrentPage--;
+            CheckScopeBeforeApply();
+
+            $scope.GetShops();
+
+        }
+    };
+
+
+    $scope.DisablePrevPage = function () {
+
+        return $scope.CurrentPage === 1 ? "disabled" : "";
+
+    };
+
+    $scope.OpenShopImages = function (_obj) {
+        $scope.CurrentShopID = _obj.ID;
+        $scope.ShopImages = [];
+        if (_obj.Images != null && _obj.Images != undefined && _obj.Images.length > 0) {
+
+            $scope.ShopImages = _obj.Images;
+        }
+        CheckScopeBeforeApply();
+        $("#myModalImages").modal('show');
+
+    }
+
+
+    $scope.nextPage = function () {
+
+        if ($scope.CurrentPage < $scope.TotalPages) {
+
+            $scope.CurrentPage++;
+            CheckScopeBeforeApply();
+
+            $scope.GetShops();
+
+        }
+    };
+
+
+    $scope.DisableNextPage = function () {
+
+        return $scope.CurrentPage === $scope.TotalPages ? "disabled" : "";
+
+    };
+
+  
+    $scope.setPage = function (n) {
+
+        $scope.CurrentPage = n;
+        CheckScopeBeforeApply();
+
+        $scope.GetShops();
+
+    };
+
+    $scope.GetShops();
+
+   
+
+  
    
    
 }]);

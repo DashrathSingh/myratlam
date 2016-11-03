@@ -38,6 +38,8 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             dataType: 'json',
             success: function (result) {
 
+                debugger;
+
                
 
                 $scope.isload = false;
@@ -70,16 +72,21 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
-            paginationClickable: true
+            paginationClickable: true,
+            slidesPerView: 'auto',
+            autoplay:5000,
+          
         });
 
         $scope.GetCategories();
 
-      
     }
 
 
-    $scope.gotoshop = function () {
+    $scope.gotoshop = function (ID) {
+
+        $scope.caID = ID;
+        localStorageService.set("CatID", $scope.caID);
         $location.path('/shop');
         $scope.$apply();
     }

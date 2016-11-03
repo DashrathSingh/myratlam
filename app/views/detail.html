@@ -269,10 +269,10 @@
 
             .testp::first-letter {
                 visibility: visible;
-                line-height: 50px;
+               
                 text-align: center;
                 color: #fff;
-                font-size: 20px;
+                font-size: 50px;
                 
             
             }
@@ -283,76 +283,125 @@
     .mainloader {
         top:45%;
     }
+
+
+    .red {
+
+        height:100px; width:100px; text-align:center;line-height:100px; margin:0 auto; border-radius:100%;
+      
+    }
+
+    .well {
+          color:#505050;
+          margin-bottom:10px;
+    }
+
+    .center {
+
+        text-align:center;
+    }
 </style>
 
 
-<div data-ng-if="isload==true || isload=='true'" class="mainloader">
-        <img style="width:35px;" src="img/loader.gif" alt="Alternate Text" />
+
+<div style="padding-left:0px; padding-right:0px;" class="well yellow">
+    <div class="row">
+        <div class="col-xs-4">
+
+            <a href="#/shop">
+                <i style="margin-top:40px;" class="fa fa-arrow-left" ></i>
+
+            </a>
+
+
+        </div>
+
+        <div style="text-align:center;" class="col-xs-4">
+
+            <div class="red" >
+                <p class="testp">
+                    {{Currentshop.Name}}
+                </p>
+            </div>
+
+        </div>
+
+         <div class="col-xs-4"></div>
     </div>
 
 
-<div style="display: none;" class="searcharea">
-
-    <div style="margin-top: 7px;" class="input-group">
-        <span data-ng-click="showheader()" class="input-group-addon leftarrow">
-            <i class="fa fa-arrow-left"></i>
-        </span>
-        <input placeholder="Type category to search" style="padding-left: 60px; height: 42px;" data-ng-change="GetCategories()" data-ng-model="Searchstring" type="text" class="mytextbox" name="name" value="" />
-    </div>
-
-
-</div>
-
-<div style="margin-bottom:0px;" class="well">
-    <div class="">
-        <input type="text" placeholder="Type to Quick search" class="form-control" data-ng-change="GetShops()" data-ng-model="Searchstring" name="name" value="" />
-    </div>
-</div>
-<ul class=" widget-products">
-
-  
-    <li data-ng-repeat="obj in shops" class="newlistitem">
-
-        <a data-ng-click="gotodetail(obj)" class="">
-            <span data-ng-class="{'green': $index % 2 === 0 }" class="img purple">
-                <p class="testp">{{obj.Name}}</p>
-            </span>
+    <div class="row">
+        <div class="center col-md-12">
+            <h4>   {{Currentshop.Name}}</h4>
+               <h4>   {{Currentshop.Contact1}}</h4>
+               <h5>   {{Currentshop.Address1}}</h5>
         
-                  <span class="product clearfix" >
 
-                <h5 class="list-group-item-heading">
+            
 
-                    <span>{{obj.Name}}</span>
-
-                </h5>
-
-                <span class="list-group-item-text">
-                    <span class="text" style="width: 30%">
-                        <span style="display: block; font-size: 13px;">{{obj.Contact1}}
-                        </span>
-
-                        <span style="display: block; font-size: 13px;">{{obj.Address1}}
-                        </span>
+            
+        </div>
+    </div>
+   
 
 
-                    </span>
-
-                </span>
+</div>
 
 
-                      </span>
+<div class="">
+    <div class="row">
+        <div class="col-md-12">
+
+            <p>About</p>
+
+            <table class="table table-bordered">
+                <tr>
+                    <td>Owner</td>
+
+                     <td>  {{Currentshop.OwnerName}}</td>
+
+                  
+                </tr>
+
+                  <tr>
+                    <td>Contact </td>
+
+                     <td>  {{Currentshop.Contact2}}</td>
+
+                  
+                </tr>
+
+                <tr>
+                    <td>Availability </td>
+
+                     <td>  {{Currentshop.AvailableDays}}</td>
 
 
-           
-        </a>
+
+                  
+                </tr>
+
+                <tr>
+                    <td>Email </td>
+
+                     <td>  {{Currentshop.Email}}</td>
+
+                  
+                </tr>
+
+
+                
+            </table>
+
+        </div>
+    </div>
+
+</div>
 
 
 
 
 
-    </li>
-
-</ul>
 
 
 

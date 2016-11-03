@@ -71,7 +71,7 @@ background-color: rgba(0,0,0,0.7);
 
     .categoryhead h5 {
         font-size:22px;
-        color:#6d6b6b;
+        color:#000;
         line-height:19px;
             white-space: nowrap
     }
@@ -89,8 +89,10 @@ background-color: rgba(0,0,0,0.7);
     }
 
     .container .row {
-        margin-left:0px;
-        margin-right:0px;
+        margin-left:5px;
+        margin-right:5px;
+        background:#eaeaea;
+        color:#333;
     }
 
     .leftarrow {
@@ -256,7 +258,8 @@ background-color: rgba(0,0,0,0.7);
 <div class="categoryhead">
     <div class="row">
     <div style="text-align:left; padding-left:5px;" class="col-xs-4">
-        <h5>NM</h5>
+        <a href="https://web.facebook.com/">  <img style="margin-top:5px;" src="img/facebook.png" alt="Alternate Text" /></a>
+      
     </div>
       <div class="col-xs-4">
           <h5>Looks for</h5>
@@ -264,7 +267,7 @@ background-color: rgba(0,0,0,0.7);
       <div style="padding-right:7px;" class="col-xs-4">
           <div class="pull-right">
                 <i style="margin-right:10px;" data-ng-click="showgrid()" class="fa fa-th"></i>
-              <i data-ng-click="showlist()" style="margin-right:5px;" class="fa fa-th-list"></i>
+              <i data-ng-click="showlist()" class="fa fa-th-list"></i>
               
           </div>
       </div>
@@ -276,7 +279,7 @@ background-color: rgba(0,0,0,0.7);
 <div data-ng-if="gridview==true" class="cat">
     <div data-ng-if="isload==false || isload=='false'" class="row">
     <div data-ng-repeat="obj in categories" class="col-md-2 col-xs-6">
-        <div data-ng-click="gotoshop()" style="width:100%" >
+        <div data-ng-click="gotoshop(obj.ID)" style="width:100%" >
             <img style="width:100%; height:150px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
             <img data-ng-if="obj.ImageSrc==null || obj.ImageSrc==''" style="width:100%; height:150px;" src="img/21.jpg" alt="Alternate Text" />
             <p>{{obj.Name}}</p>
@@ -303,7 +306,7 @@ background-color: rgba(0,0,0,0.7);
 </div>
 
 
-<a class="cd-top cd-is-visible" onclick="scrollToTop()" title="Go to top"><i class="fa fa-chevron-up"></i></a>
+<a class="cd-top" onclick="scrollToTop()" title="Go to top"><i class="fa fa-chevron-up"></i></a>
 <script>
 
     var offset = 50;
