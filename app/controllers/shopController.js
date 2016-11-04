@@ -92,7 +92,7 @@ app.controller('shopController', ['$scope', 'localStorageService', '$location', 
  
     $scope.GetShops = function () {
 
-        alert($scope.Currentcategory);
+     
         var _myObject = { IsMobile: true, categoryID: $scope.Currentcategory, categoryName: "", pagenumber: $scope.CurrentPage, sortCol: $scope.sortCol, sortDir: $scope.sortDir, filterArray: $scope.filterArray, Searchstring: $scope.Searchstring, pagesize: _pageSize };
         $.ajax({
             url: serviceBase + "/api/Shops/GetAllShops",
