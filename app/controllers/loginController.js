@@ -86,7 +86,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
 
     $scope.gotoshop = function (ID) {
-
+        $("#toolbar").show();
         $scope.caID = ID;
         localStorageService.set("CatID", $scope.caID);
         $location.path('/shop');
