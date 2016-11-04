@@ -641,7 +641,7 @@ footer.page-footer {
 #toolbar i {
     font-size: 28px;
     line-height: 56px;
-    color: #000;
+    color: #fff;
 }
 #toolbar .title {
     font-size: 17px;
@@ -651,6 +651,8 @@ footer.page-footer {
     text-transform: none;
     letter-spacing: normal;
 }
+
+
 /*------------------------------------------------------------------
 6. Drawer
 -------------------------------------------------------------------*/

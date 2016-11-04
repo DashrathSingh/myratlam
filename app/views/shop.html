@@ -209,7 +209,7 @@
         float: left;
         color: #fff;
         line-height: 50px;
-        margin-top: 20px;
+        margin-top: 17px;
         border-radius: 100%;
         position: absolute;
         background: #70b9f3;
@@ -283,6 +283,22 @@
     .mainloader {
         top:45%;
     }
+    .searchsec {
+
+  position: fixed;
+    top: 50px;
+    width: 100%;
+    padding: 14px;
+    z-index: 10;
+    padding-top: 0px;
+    }
+
+    #viewdata {
+        margin-top:100px;
+    }
+    input {
+        border-radius:0px !important;
+    }
 </style>
 
 
@@ -291,27 +307,39 @@
     </div>
 
 
-<div style="display: none;" class="searcharea">
-
-    <div style="margin-top: 7px;" class="input-group">
-        <span data-ng-click="showheader()" class="input-group-addon leftarrow">
-            <i class="fa fa-arrow-left"></i>
-        </span>
-        <input placeholder="Type category to search" style="padding-left: 60px; height: 42px;" data-ng-change="GetCategories()" data-ng-model="Searchstring" type="text" class="mytextbox" name="name" value="" />
-    </div>
 
 
-</div>
-
-<div style="margin-bottom:0px;" class="well">
+<div style="margin-bottom:0px;" class="searchsec red">
     <div class="">
         <input type="text" placeholder="Type to Quick search" class="form-control" data-ng-change="GetShops()" data-ng-model="Searchstring" name="name" value="" />
     </div>
 </div>
 <ul class=" widget-products">
 
+
+    <li data-ng-if="totalrecord==true || totalrecord=='true'">
+
+        <div style="background:#eeeeee;" class="well">
+            <h4>Search not found</h4>
+            <div style="background:#fff;" class="well">
+                <p>Search Tips</p>
+                <ol style="padding-left:0px; margin-left:0px;">
+                    <li>1. Check for spelling mistakes in search box.</li>
+                     <li>2. Try Using alternate terms</li>
+                       <li>3. Try Specific shop or address</li>
+                        <li>4. Select different category</li>
+                </ol>
+            </div>
+        </div>
+
+    
+        </li>
+
   
     <li data-ng-repeat="obj in shops" class="newlistitem">
+
+    
+
 
         <a data-ng-click="gotodetail(obj)" class="">
             <span data-ng-class="{'green': $index % 2 === 0 }" class="img purple">

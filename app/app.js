@@ -20,7 +20,17 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/detail.html"
     });
 
+    $routeProvider.when("/contact", {
+        controller: "contactController",
+        templateUrl: "app/views/contact.html"
+    });
 
+    $routeProvider.when("/about", {
+        controller: "aboutController",
+        templateUrl: "app/views/about.html"
+    });
+
+    
 
     $routeProvider.otherwise({ redirectTo: "/login" });
 

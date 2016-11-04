@@ -1,5 +1,5 @@
 ﻿'use strict';
-app.controller('shopController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
+app.controller('contactController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
 
 
     $scope.shops = [];

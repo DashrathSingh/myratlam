@@ -74,11 +74,13 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             pagination: '.swiper-pagination',
             paginationClickable: true,
             slidesPerView: 'auto',
-            autoplay:5000,
+            autoplay: 3000,
+            autoplayDisableOnInteraction: false,
           
         });
 
         $scope.GetCategories();
+
 
     }
 
