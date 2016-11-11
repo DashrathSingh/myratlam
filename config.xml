@@ -14,8 +14,8 @@
    NTD MART Team
   </author>
  
-  <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
-  <!--gap:plugin name="org.apache.cordova.statusbar" spec="0.1.4" source="pgb" /-->
+  <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+  --><!--gap:plugin name="org.apache.cordova.statusbar" spec="0.1.4" source="pgb" /--><!--
   <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
   <gap:plugin name="org.apache.cordova.camera" />
   <gap:plugin name="org.apache.cordova.file" />
@@ -28,7 +28,22 @@
   <gap:plugin name="ionic-plugin-keyboard"  source="npm" version="1.0.7" />
   <gap:plugin name="org.apache.cordova.splashscreen" />
 
-  <gap:plugin name="net.bgta.phonegap.plugin.appversion" source="pgb"/>
+  <gap:plugin name="net.bgta.phonegap.plugin.appversion" source="pgb"/>-->
+  
+  
+  <plugin name="phonegap-plugin-barcodescanner" source="npm"/>
+  <plugin name="cordova-plugin-statusbar" source="npm"/>
+  
+  <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1"/>
+
+  <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
+
+  <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
+
+  <plugin name="org.apache.cordova.network-information" source="npm"/>
+  <plugin name="org.apache.cordova.splashscreen" source="npm"/>
+  <plugin name="ionic-plugin-keyboard" source="npm"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
 
   <feature name="http://api.phonegap.com/1.0/device" />
   <feature name="debug-server" required="true">
@@ -39,8 +54,8 @@
   <preference name="webviewbounce" value="true" />
   <preference name="UIWebViewBounce" value="true" />
   <preference name="DisallowOverscroll" value="false" />
-  <preference name="phonegap-version" value="3.6.3" />
-  <preference name="orientation"   value="default" />
+  <preference name="phonegap-version" value="cli-6.3.0" />
+  <preference name="orientation"   value="portrait" />
   <preference name="target-device"  value="universal" />
   <preference name="fullscreen" value="false" />
 
@@ -50,7 +65,7 @@
   <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 <preference name="HideKeyboardFormAccessoryBar" value="true"/>
   <preference name="KeyboardShrinksView" value="true" />
-  <preference name="SplashScreenDelay" value="10000"/>
+  <preference name="SplashScreenDelay" value="5000"/>
   <icon src="icon.png" />
 
   <icon src=".pgbomit/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
