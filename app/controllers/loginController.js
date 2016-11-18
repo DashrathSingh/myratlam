@@ -84,6 +84,11 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     }
 
+    $scope.darshan = function () {
+        $location.path('/darshan');
+        $scope.$apply();
+    }
+
 
     $scope.gotoshop = function (ID) {
         $("#toolbar").show();

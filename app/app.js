@@ -30,6 +30,14 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/about.html"
     });
 
+    $routeProvider.when("/darshan", {
+        controller: "darshanController",
+        templateUrl: "app/views/darshan.html"
+    });
+
+
+    
+
     
 
     $routeProvider.otherwise({ redirectTo: "/login" });
