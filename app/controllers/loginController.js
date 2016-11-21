@@ -7,10 +7,11 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "CreatedDate";
     $scope.sortDir = "desc";
-    var _pageSize = 30;
+    var _pageSize = 10;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
+    var _TotalRecordsCurrent = 0;
     $scope.CurrentRecordCount = 0;
     $scope.ImageList = [];
     var FileName = "";
@@ -28,7 +29,10 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Category = { ID: 0, Name: "", Status: "", Sort: "", ImageSrc: "" }
     $scope.GetCategories = function () {
 
+        
+
         $scope.isload = true;
+        $scope.$apply();
         var _myObject = { pagenumber: $scope.CurrentPage, sortCol: $scope.sortCol, sortDir: $scope.sortDir, filterArray: $scope.filterArray, Searchstring: $scope.Searchstring, pagesize: _pageSize };
         $.ajax({
             url: serviceBase + "/api/Categories/GetAllCategories",
@@ -38,9 +42,6 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             dataType: 'json',
             success: function (result) {
 
-                debugger;
-
-               
 
                 $scope.isload = false;
                 if (result.Success) {
@@ -153,6 +154,41 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
          });
     };
 
+
+
+    function getIncrementor(_Total) {
+        if (_Total <= 100) {
+            return 10;
+        }
+        else if (_Total > 100 && _Total < 500) {
+            return 20;
+        }
+        else if (_Total > 500) {
+            return 50;
+        }
+        else {
+            return 10;
+        }
+    }
+
    
-   
+    $(window).scroll(function () {
+
+     
+        if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+            if (_pageSize < $scope.TotalRecords) {
+
+         
+
+                _pageSize = _pageSize + getIncrementor(10);
+                CheckScopeBeforeApply();
+                $scope.GetCategories();
+            }
+            else {
+                // log.info("You have already loaded all data.")
+            }
+
+        }
+
+    });
 }]);

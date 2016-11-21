@@ -290,7 +290,7 @@ background-color: rgba(0,0,0,0.7);
 
  
 <div data-ng-if="gridview==true" class="cat">
-    <div data-ng-if="isload==false || isload=='false'" class="row">
+    <div class="row">
     <div data-ng-repeat="obj in categories" class="col-md-2 col-xs-6">
         <div data-ng-click="gotoshop(obj.ID)" style="width:100%" >
             <img style="width:100%; height:150px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
