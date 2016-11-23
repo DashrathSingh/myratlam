@@ -96,6 +96,18 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
         $scope.$apply();
     }
 
+                
+
+
+
+    $scope.train = function () {
+    
+        $location.path('/train');
+        $scope.$apply();
+    }
+
+    
+
 
     $scope.gotoshop = function (ID) {
         $("#toolbar").show();

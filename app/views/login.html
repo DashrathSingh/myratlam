@@ -2,12 +2,11 @@
 
 <style>
   
-
-
     h1 {
 
         color:#fff;
     }
+
 
     .cat p {
 
@@ -236,8 +235,9 @@ background-color: rgba(0,0,0,0.7);
 
 
 <div data-ng-if="isload==true || isload=='true'" class="mainloader">
-        <img style="width:50px; border-radius:100%;" src="img/loader.gif" alt="Alternate Text" />
+        <img style="width:60px; border-radius:100%;" src="img/loader.gif" alt="Alternate Text" />
     </div>
+
 
 
 
@@ -258,15 +258,17 @@ background-color: rgba(0,0,0,0.7);
 
 <div style="background:#cac6c6;" class="row">
     <div style="padding-left:0px; padding-right:0px;" class="col-xs-4">
-         <img data-ng-click="darshan()" src="img/sh.jpg" alt="Alternate Text" />
+         <img style="width:100%;" data-ng-click="darshan()" src="img/12.jpg" alt="Alternate Text" />
     </div>
      <div style="text-align:center; padding:0px" class="col-xs-4">
-           <img  src="img/train.jpg" alt="Alternate Text" />
+           <img data-ng-click="train()"style="width:100%;" src="img/9.jpg" alt="Alternate Text" />
      </div>
      <div style="padding-right:0px; padding-left:0px; text-align:right" class="col-xs-4">
-           <img  data-ng-click="bus()" src="img/bus.jpg" alt="Alternate Text" />
+           <img style="width:100%;" data-ng-click="bus()" src="img/10.jpg" alt="Alternate Text" />
      </div>
 </div>
+
+
 
 <div class="categoryhead">
     <div class="row">
@@ -305,16 +307,16 @@ background-color: rgba(0,0,0,0.7);
 
 <div style="padding-left:5px; padding-right:5px;" data-ng-if="listview==true && isload==false"">
     
-    <table data-ng-click="gotoshop()" class="listtable" style="width:100%; background:#eaeaea;">
+    <table  class="listtable" style="width:100%; background:#eaeaea;">
         <tr data-ng-repeat="obj in categories">
-            <td style="width:85px;">
+            <td data-ng-click="gotoshop(obj.ID)" style="width:85px;">
 
                    <img style="width:75px; height:75px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
             <img data-ng-if="obj.ImageSrc==null || obj.ImageSrc==''" style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
 
               
             </td>
-             <td>
+             <td data-ng-click="gotoshop(obj.ID)">
                  <h3 style="margin-bottom:5px; margin-top:1px">{{obj.Name}}</h3>
                  <h5>{{obj.Name}} description  !!</h5>
              </td>
