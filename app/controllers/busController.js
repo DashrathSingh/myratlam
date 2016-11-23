@@ -1,23 +1,21 @@
 ﻿'use strict';
-app.controller('darshanController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
+app.controller('busController', ['$scope', 'localStorageService', '$location', 'authService', 'ngAuthSettings', function ($scope, localStorageService, $location, authService, ngAuthSettings) {
 
 
-    $scope.GetDarshanTimings = function () {
+    $scope.GetBusTimings = function () {
         $scope.isloader = true;
         $.ajax({
-            url: serviceBase + "/api/DarshanTimings",
+            url: serviceBase + "/api/BusTimings",
             type: 'GET',
             contentType: 'application/json',
             dataType: 'json',
             success: function (result) {
 
-            
                 $scope.isloader = false;
 
                 debugger;
-
-                $scope.DarshanTimings = result;
-
+                $scope.BusTimings = result;
+                console.log($scope.BusTimings);
 
                 $scope.$apply();
 
@@ -26,13 +24,12 @@ app.controller('darshanController', ['$scope', 'localStorageService', '$location
                 $scope.isloader = false;
             },
             complete: function () {
+
                 $scope.isloader = false;
-
-
             }
         });
     }
 
-    $scope.GetDarshanTimings();
+    $scope.GetBusTimings();
    
 }]);

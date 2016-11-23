@@ -90,6 +90,12 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     }
 
 
+    $scope.bus = function () {
+        $location.path('/bus');
+        $scope.$apply();
+    }
+
+
     $scope.gotoshop = function (ID) {
         $("#toolbar").show();
         $scope.caID = ID;

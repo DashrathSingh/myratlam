@@ -35,7 +35,10 @@ app.config(function ($routeProvider) {
         templateUrl: "app/views/darshan.html"
     });
 
-
+    $routeProvider.when("/bus", {
+        controller: "busController",
+        templateUrl: "app/views/bus.html"
+    });
     
 
     
