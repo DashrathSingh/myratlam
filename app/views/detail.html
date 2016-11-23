@@ -355,6 +355,12 @@
 
             <p>About</p>
 
+
+            <span data-ng-repeat="obj in Currentshop.Images">
+                  <img style="width:75px; height:75px; margin-right:10px; margin-bottom:5px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
+            </span>
+            
+
             <table class="table table-bordered">
                 <tr>
                     <td>Owner</td>
