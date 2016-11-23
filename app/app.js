@@ -39,7 +39,10 @@ app.config(function ($routeProvider) {
         controller: "busController",
         templateUrl: "app/views/bus.html"
     });
-    
+    $routeProvider.when("/train", {
+        controller: "trainController",
+        templateUrl: "app/views/train.html"
+    });
 
     
 
