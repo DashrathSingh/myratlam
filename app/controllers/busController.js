@@ -3,7 +3,7 @@ app.controller('busController', ['$scope', 'localStorageService', '$location', '
 
 
     $scope.GetBusTimings = function () {
-        $scope.isloader = true;
+        $scope.isload = true;
         $.ajax({
             url: serviceBase + "/api/BusTimings",
             type: 'GET',
@@ -11,7 +11,7 @@ app.controller('busController', ['$scope', 'localStorageService', '$location', '
             dataType: 'json',
             success: function (result) {
 
-                $scope.isloader = false;
+                $scope.isload = false;
 
                 debugger;
                 $scope.BusTimings = result;

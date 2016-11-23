@@ -63,9 +63,15 @@
     vertical-align: middle !important;
     font-size: 15px;
     }
-
+     .mainloader {
+        top:45%;
+    }
    
 </style>
+
+<div data-ng-if="isload==true || isload=='true'" class="mainloader">
+        <img style="width:35px;" src="img/loader.gif" alt="Alternate Text" />
+    </div>
 
 <div class="well">
     <h4 style="margin-top:0px;">Darshan Timings</h4>
@@ -81,7 +87,7 @@
             <td width="40%;" data-ng-class="{'green': $index % 2 === 0 }" class="red">
                 <p class="darshan"> {{obj.Name}} </p>
             </td>
-             <td width="60%">
+             <td class="pink" style="color:#fff;" width="60%">
                  {{obj.OpenTime}} to  {{obj.CloseTime}}
              </td>
         </tr>

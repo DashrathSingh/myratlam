@@ -3,7 +3,7 @@ app.controller('darshanController', ['$scope', 'localStorageService', '$location
 
 
     $scope.GetDarshanTimings = function () {
-        $scope.isloader = true;
+        $scope.isload = true;
         $.ajax({
             url: serviceBase + "/api/DarshanTimings",
             type: 'GET',
@@ -12,7 +12,7 @@ app.controller('darshanController', ['$scope', 'localStorageService', '$location
             success: function (result) {
 
             
-                $scope.isloader = false;
+                $scope.isload = false;
 
                 debugger;
 
