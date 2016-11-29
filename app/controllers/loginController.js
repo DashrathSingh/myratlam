@@ -38,7 +38,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             dataType: 'json',
             success: function (result) {
 
-                alert("Success");
+               
 
                 $scope.isload = false;
                 if (result.Success) {
