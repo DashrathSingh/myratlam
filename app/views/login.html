@@ -290,15 +290,16 @@ background-color: rgba(0,0,0,0.7);
 </div>
 
 
+
 <div style="background:#cac6c6; margin-left:0px; margin-right:0px;" class="row">
     <div style="padding-left:0px; padding-right:0px;" class="col-xs-4">
-         <img style="width:100%; border-right:2px solid #fff" data-ng-click="darshan()" src="img/darshan.jpg" alt="Alternate Text" />
+         <img style="width:100%; border-right:2px solid #fff" data-ng-click="darshan()" src="img/Darshan.jpg" alt="Alternate Text" />
     </div>
      <div style="text-align:center; padding:0px" class="col-xs-4">
-           <img data-ng-click="train()"style="width:100%; border-left:1px solid #fff; border-right:1px solid #fff;" src="img/train.jpg" alt="Alternate Text" />
+           <img data-ng-click="train()"style="width:100%; border-left:1px solid #fff; border-right:1px solid #fff;" src="img/Train.jpg" alt="Alternate Text" />
      </div>
      <div style="padding-right:0px; padding-left:0px; text-align:right" class="col-xs-4">
-           <img style="width:100%; border-left:2px solid #fff" data-ng-click="bus()" src="img/bus.jpg" alt="Alternate Text" />
+           <img style="width:100%; border-left:2px solid #fff" data-ng-click="bus()" src="img/Bus.jpg" alt="Alternate Text" />
      </div>
 </div>
 
@@ -344,8 +345,8 @@ background-color: rgba(0,0,0,0.7);
         <tr data-ng-repeat="obj in categories">
             <td data-ng-click="gotoshop(obj.ID)" style="width:85px;">
 
-                   <img style="width:75px; height:75px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
-            <img data-ng-if="obj.ImageSrc==null || obj.ImageSrc==''" style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+                   <img style="width:75px; height:75px;" src="{{ImageUrl}}{{obj.ImagePath}}"  data-ng-if="obj.ImagePath!=null && obj.ImagePath!=''" imageonload />
+            <img data-ng-if="obj.ImagePath==null || obj.ImagePath==''" style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
 
               
             </td>
