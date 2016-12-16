@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "CreatedDate";
     $scope.sortDir = "desc";
-    var _pageSize = 20;
+    var _pageSize = 30;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -21,6 +21,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             $scope.$apply();
         }
     };
+
 
     $scope.isload = true;
 
