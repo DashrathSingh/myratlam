@@ -305,6 +305,16 @@
      .dropdown-toggle {
         display:none;
     }
+
+    .table-bordered i {
+        font-size:14px;
+        margin-right:3px;
+        color:#3973b1;
+    }
+
+    .table-bordered td {
+        vertical-align:middle;
+    }
 </style>
 
 
@@ -357,33 +367,54 @@
     <div class="row">
         <div class="col-md-12">
 
-            <p>About</p>
+            <p>ABOUT</p>
 
 
-            <span data-ng-repeat="obj in Currentshop.Images">
+            <!--<span data-ng-repeat="obj in Currentshop.Images">
                   <img style="width:75px; height:75px; margin-right:10px; margin-bottom:5px;" src="data:image/jpeg;base64,{{obj.ImageSrc}}"  data-ng-if="obj.ImageSrc!=null && obj.ImageSrc!=''" />
-            </span>
-            
+            </span>-->
+
+
+            <p style="font-size:13px;">Owner of <span style="color:brown; font-weight:700;"> {{Currentshop.Name}} </span> Is {{Currentshop.OwnerName}}</p>
+            <p style="font-size:13px;">{{Currentshop.Name}} Is N-Mart <span ng-if="Currentshop.IsVerified==true">Verified</span> <span ng-if="Currentshop.IsVerified==false">Not Verified</span>   </p> 
 
             <table class="table table-bordered">
-                <tr>
-                    <td>Owner</td>
+              
 
-                     <td>  {{Currentshop.OwnerName}}</td>
+                 <tr>
+                    <td width="50%"><i class="fa fa-map-marker" ></i> Address </td>
+
+                     <td width="50%">  {{Currentshop.Address1}}</td>
 
                   
                 </tr>
 
                   <tr>
-                    <td>Contact </td>
+                    <td><i class="fa fa-map-marker" ></i> Alternate address </td>
+
+                     <td>  {{Currentshop.Address2}}</td>
+
+                  
+                </tr>
+
+                  <tr>
+                    <td><i class="fa fa-phone" ></i> Official Contact </td>
 
                      <td>  {{Currentshop.Contact2}}</td>
 
                   
                 </tr>
 
+                  <tr>
+                    <td><i class="fa fa-phone" ></i> Personal Contact </td>
+
+                     <td>  {{Currentshop.Contact1}}</td>
+
+                  
+                </tr>
+
                 <tr>
-                    <td>Availability </td>
+                    <td><i class="fa fa-calendar" ></i> Availability </td>
 
                      <td>  {{Currentshop.AvailableDays}}</td>
 
@@ -393,7 +424,7 @@
                 </tr>
 
                 <tr>
-                    <td>Email </td>
+                    <td><i class="fa fa-envelope" ></i> Email </td>
 
                      <td>  {{Currentshop.Email}}</td>
 
@@ -401,7 +432,7 @@
                 </tr>
 
                   <tr>
-                    <td>Website </td>
+                    <td><i class="fa fa-globe" ></i> Website </td>
 
                      <td>  {{Currentshop.WebsiteUrl}}</td>
 

@@ -53,7 +53,7 @@ app.config(function ($routeProvider) {
 //var serviceBase = 'http://localhost:7440/API/ClearlyInventoryAPI.svc/';
 //var serviceBaseUrl = 'http://localhost:7440/';
 //var serviceBaseUrl = 'https://test.inventory4.com/';
-var serviceBase = 'http://nm.sproutsmind.in/';
+var serviceBase = 'http://nm.jayeshkabra.in/';
 app.constant('ngAuthSettings', {
     apiServiceBaseUri: serviceBase,
     clientId: 'ngAuthApp'

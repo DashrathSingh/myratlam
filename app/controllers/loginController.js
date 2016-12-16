@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "CreatedDate";
     $scope.sortDir = "desc";
-    var _pageSize = 10;
+    var _pageSize = 20;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -23,6 +23,8 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     };
 
     $scope.isload = true;
+
+    $scope.ImageUrl = serviceBase + "/Images/";
 
 
 
@@ -41,6 +43,9 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             contentType: 'application/json',
             dataType: 'json',
             success: function (result) {
+
+
+                debugger;
 
 
                 $scope.isload = false;
@@ -74,9 +79,9 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
         var swiper = new Swiper('.swiper-container', {
             pagination: '.swiper-pagination',
             paginationClickable: true,
-            slidesPerView: 'auto',
-            autoplay: 3000,
-            autoplayDisableOnInteraction: false,
+          slidesPerView: 'auto',
+           autoplay: 3000,
+          autoplayDisableOnInteraction: false,
           
         });
 
@@ -204,3 +209,17 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     });
 }]);
+
+app.directive('imageonload', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('load', function () {
+                element[0].nextElementSibling.remove();
+                element[0].style.display = "";
+            });
+            element.bind('error', function () {
+            });
+        }
+    };
+});
