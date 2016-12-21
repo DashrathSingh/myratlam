@@ -116,6 +116,8 @@ app.controller('shopController', ['$scope', 'localStorageService', '$location', 
                         $scope.$apply();
                     }
 
+                    $scope.categaryname = result.Data[0].categoryName;
+                    CheckScopeBeforeApply();
                  
                     console.log($scope.shops.length)
                 }

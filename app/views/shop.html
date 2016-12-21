@@ -317,9 +317,14 @@
         <input type="text" placeholder="Type to Quick search" class="form-control" data-ng-change="GetShops()" data-ng-model="Searchstring" name="name" value="" />
     </div>
 </div>
+
+
+
 <ul class=" widget-products">
 
-
+      <li data-ng-if="totalrecord!=true && totalrecord!='true'" style="padding-bottom:10px; padding-top:10px; background:#a09a9a ; text-align:center;" class="" >
+    <span class="" style="font-family:cursive; text-align:center; background:#a09a9a ; color:#fff; font-size:17px; "> {{categaryname}}</span> 
+</li>
     <li data-ng-if="totalrecord==true || totalrecord=='true'">
 
         <div style="background:#eeeeee;" class="well">
@@ -338,7 +343,7 @@
     
         </li>
 
-  
+
     <li data-ng-repeat="obj in shops" class="newlistitem">
 
     
