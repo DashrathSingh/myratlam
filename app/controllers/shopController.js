@@ -6,8 +6,8 @@ app.controller('shopController', ['$scope', 'localStorageService', '$location', 
     $scope.Categories = [];
     $scope.filterArray = [];
     $scope.Searchstring = "";
-    $scope.sortCol = "UpdatedDate";
-    $scope.sortDir = "desc";
+    $scope.sortCol = "ID";
+    $scope.sortDir = "asc";
     var _pageSize = 30;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;

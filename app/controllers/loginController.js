@@ -5,9 +5,9 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.categories = [];
     $scope.filterArray = [];
     $scope.Searchstring = "";
-    $scope.sortCol = "CreatedDate";
+    $scope.sortCol = "Sort";
     $scope.sortDir = "desc";
-    var _pageSize = 30;
+    var _pageSize = 20;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -21,7 +21,6 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             $scope.$apply();
         }
     };
-
 
     $scope.isload = true;
 
@@ -135,13 +134,36 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     }
 
+
+    $scope.Currentview = localStorageService.get("CurrentView");
+
+    debugger;
+
+    if ($scope.Currentview=="List") {
+        $scope.listview = true;
+        $scope.gridview = false;
+    }
+
+    else {
+
+        $scope.listview = false;
+        $scope.gridview = true;
+
+    }
+
+
     $scope.showlist = function () {
+
+        localStorageService.set("CurrentView", "List");
+
         $scope.gridview = false;
         $scope.listview = true;
        
     }
 
     $scope.showgrid = function () {
+
+        localStorageService.set("CurrentView", "Grid");
         $scope.gridview = true;
         $scope.listview = false;
 
@@ -212,6 +234,20 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 }]);
 
 app.directive('imageonload', function () {
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            element.bind('load', function () {
+                element[0].nextElementSibling.remove();
+                element[0].style.display = "";
+            });
+            element.bind('error', function () {
+            });
+        }
+    };
+});
+
+app.directive('imageonload1', function () {
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
