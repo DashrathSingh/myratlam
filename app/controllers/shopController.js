@@ -8,7 +8,7 @@ app.controller('shopController', ['$scope', 'localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "ID";
     $scope.sortDir = "asc";
-    var _pageSize = 30;
+    var _pageSize = 32;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;

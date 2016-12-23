@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "Sort";
     $scope.sortDir = "desc";
-    var _pageSize = 20;
+    var _pageSize = 32;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -29,6 +29,34 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
 
     $scope.Category = { ID: 0, Name: "", Status: "", Sort: "", ImageSrc: "" }
+
+    $scope.GetTempmethod = function () {
+
+        $.ajax({
+            url: serviceBase + "/api/BusTimings/1",
+          //  data: JSON.stringify(_myObject),
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (result) {
+
+                console.log("into success");
+                console.log(result);
+                
+
+
+
+
+            },
+            error: function (req) {
+                console.log("into error");
+            },
+            complete: function () {
+
+
+            }
+        });
+    }
     $scope.GetCategories = function () {
 
         
@@ -45,7 +73,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             success: function (result) {
 
 
-                debugger;
+                
 
 
                 $scope.isload = false;
@@ -84,7 +112,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
           autoplayDisableOnInteraction: false,
           
         });
-
+        $scope.GetTempmethod();
         $scope.GetCategories();
 
 
@@ -137,7 +165,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     $scope.Currentview = localStorageService.get("CurrentView");
 
-    debugger;
+    
 
     if ($scope.Currentview=="List") {
         $scope.listview = true;
@@ -220,7 +248,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
          
 
-                _pageSize = _pageSize + getIncrementor(10);
+                _pageSize = _pageSize + getIncrementor(200);
                 CheckScopeBeforeApply();
                 $scope.GetCategories();
             }
