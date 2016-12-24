@@ -40,7 +40,6 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             dataType: 'json',
             success: function (result) {
 
-               alert("into first load");
                 console.log(result);
                 
 
@@ -73,7 +72,6 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             success: function (result) {
 
 
-                alert("into second load");
 
 
                 $scope.isload = false;
