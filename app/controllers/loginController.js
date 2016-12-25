@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "Sort";
     $scope.sortDir = "desc";
-    var _pageSize = 32;
+    var _pageSize = 100;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -21,6 +21,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             $scope.$apply();
         }
     };
+
 
     $scope.isload = true;
 
@@ -58,6 +59,10 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     }
     $scope.GetCategories = function () {
 
+
+     
+        
+
         
 
         $scope.isload = true;
@@ -71,6 +76,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
             dataType: 'json',
             success: function (result) {
 
+                debugger;
 
 
 
@@ -81,18 +87,52 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
                     $scope.TotalPages = result.TotalPages;
                     $scope.TotalRecords = result.TotalRecords;
                     $scope.CurrentRecordCount = result.CurrentRecordCount;
+                  
                 }
                 else {
                     // toastr.error("Error occurred");
                     //  toastr.error(result.ex);
                 }
 
+            
+
+             
+
                 CheckScopeBeforeApply();
+
+
+
 
             },
             error: function (req) {
             },
             complete: function () {
+                debugger;
+
+                $scope.ActivecatID = localStorageService.get("Activecategory");
+                $("#" + $scope.ActivecatID).addClass("Active");
+
+
+                $('html, body').animate({
+                    scrollTop: $("#" + $scope.ActivecatID).offset().top-100
+                }, 1000);
+
+
+
+
+             
+
+
+                setTimeout(function () {
+
+                    localStorageService.set("Activecategory", "Notactive");
+
+                },1500)
+    
+                
+
+
+               
 
 
             }
@@ -141,6 +181,13 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
 
     $scope.gotoshop = function (ID) {
+
+        debugger;
+
+        $("#" + ID).addClass("Active");
+
+        localStorageService.set("Activecategory", ID);
+
         $("#toolbar").show();
         $scope.caID = ID;
         localStorageService.set("CatID", $scope.caID);
@@ -244,9 +291,14 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
         if ($(window).scrollTop() == $(document).height() - $(window).height()) {
             if (_pageSize < $scope.TotalRecords) {
 
-         
+                debugger;
 
                 _pageSize = _pageSize + getIncrementor(200);
+
+            
+
+            
+
                 CheckScopeBeforeApply();
                 $scope.GetCategories();
             }

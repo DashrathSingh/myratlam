@@ -308,7 +308,7 @@ background-color: rgba(0,0,0,0.7);
     <div class="row">
     <div style="text-align:left; padding-left:5px;" class="col-xs-4">
         <a onclick="window.open('https://web.facebook.com/nathdwaramart');">  <img style="margin-top:5px;" src="img/facebook.png" alt="Alternate Text" /></a>
-        <a onclick="window.plugins.socialsharing.share('Welcome to Nathdwara Mart', null, null, 'https://play.google.com/store/apps/details?id=com.nathdwaramart.nathdwaramart&hl=en')"><img style="margin-top:5px;" height="40" width="40" src="img/cloud_share-512.png" alt="Alternate Text" /></a>
+        <a onclick="window.plugins.socialsharing.share('Nathdwara Mart', null, null, 'https://play.google.com/store/apps/details?id=com.nathdwaramart.nathdwaramart&hl=en')"><img style="margin-top:5px;" height="30" width="30" src="img/cloud_share-512.png" alt="Alternate Text" /></a>
       
     </div>
 
@@ -342,7 +342,7 @@ background-color: rgba(0,0,0,0.7);
 <div data-ng-if="gridview==true" class="cat">
     <div class="row">
     <div data-ng-repeat="obj in categories" class="col-md-2 col-xs-6">
-        <div data-ng-click="gotoshop(obj.ID)" style="width:100%" >
+        <div id="{{obj.ID}}" data-ng-click="gotoshop(obj.ID)" style="width:100%" >
             <img style="width:100%; height:150px; display:none;" src="{{ImageUrl}}{{obj.ImagePath}}"  data-ng-if="obj.ImagePath!=null && obj.ImagePath!=''" imageonload />
             <img data-ng-if="_obj.ImagePath==null || _obj.ImagePath==''" style="width:100%; height:150px;" src="img/23.jpg" alt="Alternate Text" />
               <img style="width:100%; height:150px; border:transparent" ng-if="_obj.ImagePath!=null && _obj.ImagePath!=''" src="img/loader1.gif" class="img-responsive img-thumbnail img-circle" alt="loading.." />
@@ -357,17 +357,17 @@ background-color: rgba(0,0,0,0.7);
 <div style="padding-left:5px; padding-right:5px;" data-ng-if="listview==true && isload==false"">
     
     <table  class="listtable" style="width:100%; background:#eaeaea;">
-        <tr data-ng-repeat="obj in categories">
-            <td data-ng-click="gotoshop(obj.ID)" style="width:85px;">
+        <tr data-ng-repeat="_obj in categories">
+            <td id="{{_obj.ID}}" data-ng-click="gotoshop(_obj.ID)" style="width:85px;">
 
-                   <img style="width:75px; height:75px;" src="{{ImageUrl}}{{obj.ImagePath}}"  data-ng-if="obj.ImagePath!=null && obj.ImagePath!=''" imageonload1 />
-            <img data-ng-if="obj.ImagePath==null || obj.ImagePath==''" style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
+                   <img style="width:75px; height:75px;" src="{{ImageUrl}}{{_obj.ImagePath}}"  data-ng-if="_obj.ImagePath!=null && _obj.ImagePath!=''" imageonload1 />
+            <img data-ng-if="_obj.ImagePath==null || _obj.ImagePath==''" style="width:75px; height:75px;" src="img/23.jpg" alt="Alternate Text" />
 
               
             </td>
-             <td data-ng-click="gotoshop(obj.ID)">
-                 <h3 style="margin-bottom:5px; margin-top:1px">{{obj.Name}}</h3>
-                 <h5>{{obj.Name}} Category</h5>
+             <td data-ng-click="gotoshop(_obj.ID)">
+                 <h3 style="margin-bottom:5px; margin-top:1px">{{_obj.Name}}</h3>
+                 <h5>{{_obj.Name}} Category</h5>
              </td>
         </tr>
       
