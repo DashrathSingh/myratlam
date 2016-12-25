@@ -939,44 +939,44 @@
             );
         }
 
-        var exitApp = false, intval = setInterval(function () { exitApp = false; }, 1000);
-        document.addEventListener("backbutton", function (e) {
-            e.preventDefault();
+        //var exitApp = false, intval = setInterval(function () { exitApp = false; }, 1000);
+        //document.addEventListener("backbutton", function (e) {
+        //    e.preventDefault();
 
 
 
-            if (exitApp) {
+        //    if (exitApp) {
 
-                if (_isOpenBootbox == false) {
-                    _isOpenBootbox = true;
-                    bootbox.confirm("Are you sure to exit App ?", function (result) {
-                        if (result) {
-                            clearInterval(intval)
-                    (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
-                            _isOpenBootbox = false;
+        //        if (_isOpenBootbox == false) {
+        //            _isOpenBootbox = true;
+        //            bootbox.confirm("Are you sure to exit App ?", function (result) {
+        //                if (result) {
+        //                    clearInterval(intval)
+        //            (navigator.app && navigator.app.exitApp()) || (device && device.exitApp())
+        //                    _isOpenBootbox = false;
 
-                        }
-                        _isOpenBootbox = false;
-                    });
+        //                }
+        //                _isOpenBootbox = false;
+        //            });
 
-                }
-
-
-
-            }
-            else {
-                exitApp = true;
-
-                if (_CurrentUrl != "MainMenu") {
-
-                    navigator.app.backHistory();
-                    _isOpenBootbox = false;
-
-                }
+        //        }
 
 
-            }
-        }, false);
+
+        //    }
+        //    else {
+        //        exitApp = true;
+
+        //        if (_CurrentUrl != "MainMenu") {
+
+        //            navigator.app.backHistory();
+        //            _isOpenBootbox = false;
+
+        //        }
+
+
+        //    }
+        //}, false);
 
         document.addEventListener("online", onOnline, false);
         document.addEventListener("offline", onOffline, false);
@@ -1185,51 +1185,7 @@
 
 
 
-    <script>
-
-        function ShowSuccessActivity(Message, Type) {
-
-            switch (Type) {
-                case -1:
-                    $(".errorcontent").css("background", "rgba(175,37,37,0.7)");
-
-                    break;
-                case 0:
-                    $(".errorcontent").css("background", "rgba(198,94,40,0.7)");
-                    break;
-                case 1:
-                    $(".errorcontent").css("background", "rgba(23,123,61,0.7)");
-                    break;
-                case 2:
-
-                    $(".errorcontent").css("background", "rgba(206,89,161,0.7)");
-
-                    break;
-                case 3:
-                    $(".errorcontent").css("background", "rgba(88,55,130,0.7)");
-                    break;
-                case 4:
-                    $(".errorcontent").css("background", "rgba(13,25,15,0.7)");
-                    break;
-
-                case 12:
-
-                    $(".errorcontent").css("background", "rgba(248,194,23,0.7)");
-
-                    break;
-                default:
-
-            }
-            Message = Message != null && Message != undefined ? Message : "Saved";
-            $("#mysmallModal").removeClass('bounceOut').addClass('bounceIn');
-            $('#mysmallModal').show();
-            $('#DataText').html(Message);
-
-            setTimeout(function () {
-                hideSuccess();
-            }, 3000)
-        }
-    </script>
+    
 
     <script>
     </script>
