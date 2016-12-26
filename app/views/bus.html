@@ -98,7 +98,31 @@
 <div class="well">
     
 
-    <input style="border-radius:0px;" type="text" data-ng-model="Search" class="form-control" placeholder="Type to search" name="name" value=" " />
+    <!--<input style="border-radius:0px;" type="text" data-ng-model="Search" class="form-control" placeholder="Type to search" name="name" value=" " />-->
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="form-group">
+
+                <label> From</label>
+                <select class="form-control">
+                    <option value="Nathdwara">Nathdwara</option>
+                </select>
+                    </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label> To</label>
+                    <select data-ng-model="Search" class="form-control">
+                        <option value="">Select to</option>
+                        <option value="{{obj.To}}" data-ng-repeat="obj in BusTimings | unique: 'To'">{{obj.To}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    </div>
     <table class="table table-bordered">
 
         <tr>
