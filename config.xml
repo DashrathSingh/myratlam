@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.Nathdwara"
-        version   = "1.0.3">
+        id        = "com.NathdwaraMartNew"
+        version   = "0.0.1">
   
   <name>Nathdwara mart</name>
 
@@ -11,7 +11,7 @@
   </description>
   
   <author href="http://www.Nathdwara.com/" email="Nathdwara.com">
-   NTD MART Team
+   NATHDWARA Team
   </author>
  
   <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
