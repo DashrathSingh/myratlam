@@ -1,5 +1,5 @@
 ﻿
-var app = angular.module('NathdwaraMartApp', ['ngRoute', 'ngSanitize', 'LocalStorageModule', 'angular-loading-bar', 'ngCordova', 'ui.sortable']);
+var app = angular.module('ClearlyInventoryApp', ['ngRoute', 'ngSanitize', 'LocalStorageModule', 'angular-loading-bar', 'ngCordova', 'ui.sortable']);
 
 app.config(function ($routeProvider) {
 
@@ -28,6 +28,11 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/about", {
         controller: "aboutController",
         templateUrl: "app/views/about.html"
+    });
+
+    $routeProvider.when("/around", {
+        controller: "aboutController",
+        templateUrl: "app/views/around.html"
     });
 
     $routeProvider.when("/darshan", {

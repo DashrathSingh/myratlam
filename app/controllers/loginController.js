@@ -7,10 +7,12 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "Sort";
     $scope.sortDir = "desc";
-    var _pageSize = 100;
+    var _pageSize = 125;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
+
+    $scope.FeaturedImages = [];
     var _TotalRecordsCurrent = 0;
     $scope.CurrentRecordCount = 0;
     $scope.ImageList = [];
@@ -23,10 +25,11 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     };
 
 
+
     $scope.isload = true;
 
     $scope.ImageUrl = serviceBase + "/Images/";
-
+    $scope.FeaturedImageUrl = serviceBase + "/FeaturedImages/";
 
 
     $scope.Category = { ID: 0, Name: "", Status: "", Sort: "", ImageSrc: "" }
@@ -45,6 +48,43 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
                 
 
 
+
+
+            },
+            error: function (req) {
+                console.log("into error");
+            },
+            complete: function () {
+
+
+            }
+        });
+    }
+
+    var swiper;
+
+    $scope.GetFeaturedImages = function () {
+
+        $.ajax({
+            url: serviceBase + "/api/FeaturedShops/GetFeaturedShops",
+            //  data: JSON.stringify(_myObject),
+            type: 'GET',
+            contentType: 'application/json',
+            dataType: 'json',
+            success: function (result) {
+
+
+                $scope.FeaturedImages = result;
+                CheckScopeBeforeApply();
+
+                swiper = new Swiper('.swiper-container', {
+                    pagination: '.swiper-pagination',
+                    paginationClickable: true,
+                    slidesPerView: 'auto',
+                    autoplay: 3000,
+                    autoplayDisableOnInteraction: false,
+
+                });
 
 
             },
@@ -142,15 +182,9 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.InIt = function ()
     {
 
-        var swiper = new Swiper('.swiper-container', {
-            pagination: '.swiper-pagination',
-            paginationClickable: true,
-          slidesPerView: 'auto',
-           autoplay: 3000,
-          autoplayDisableOnInteraction: false,
-          
-        });
+      
         $scope.GetTempmethod();
+        $scope.GetFeaturedImages();
         $scope.GetCategories();
 
 
