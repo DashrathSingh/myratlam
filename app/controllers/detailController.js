@@ -17,6 +17,15 @@ app.controller('detailController', ['$scope', 'localStorageService', '$location'
  
 
     console.log($scope.Currentshop);
+
+
+    $scope.gotourl = function (url) {
+       
+
+        window.open("http://" + url);
+        $scope.$apply();
+    }
+
    
    
 }]);

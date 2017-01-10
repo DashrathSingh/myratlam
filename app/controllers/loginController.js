@@ -7,7 +7,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
     $scope.Searchstring = "";
     $scope.sortCol = "Sort";
     $scope.sortDir = "desc";
-    var _pageSize = 125;
+    var _pageSize = 150;
     $scope.CurrentPage = 1;
     $scope.TotalPages = 0;
     $scope.TotalRecords = 0;
@@ -26,6 +26,7 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
 
 
+    $scope.dynamicimage = false;
     $scope.isload = true;
 
     $scope.ImageUrl = serviceBase + "/Images/";
@@ -75,6 +76,8 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
 
                 $scope.FeaturedImages = result;
+
+                $scope.dynamicimage = true;
                 CheckScopeBeforeApply();
 
                 swiper = new Swiper('.swiper-container', {

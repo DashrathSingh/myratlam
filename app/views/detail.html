@@ -428,7 +428,16 @@
                   <tr>
                     <td><i class="fa fa-globe" ></i> Website </td>
 
-                     <td>  {{Currentshop.WebsiteUrl}}</td>
+                     <td>  
+                         <a data-ng-click="gotourl(Currentshop.WebsiteUrl);">{{Currentshop.WebsiteUrl}}</a> </td>
+
+                  
+                </tr>
+
+                  <tr>
+                    <td><i class="fa fa-star" ></i> Description </td>
+
+                     <td>  {{Currentshop.Description}}</td>
 
                   
                 </tr>

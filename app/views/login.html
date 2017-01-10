@@ -262,15 +262,17 @@ background-color: rgba(0,0,0,0.7);
 <div class="swiper-container">
 <div class="swiper-wrapper">
 
-     <div style="background:#fff;" class="swiper-slide" ng-repeat="_obj in FeaturedImages"> 
+    <div ng-if="dynamicimage==false" style="background:#fff;" class="swiper-slide "> 
+      <img style="width:100%; height:inherit"  src="img/36.jpg" alt="Alternate Text" />
+</div>
+
+     <div ng-if="dynamicimage==true" style="background:#fff;" class="swiper-slide" ng-repeat="_obj in FeaturedImages"> 
 
          <img style="width:100%; height:inherit" src="{{FeaturedImageUrl}}{{_obj.ImagePath}}" data-ng-if="_obj.ImagePath!=null && _obj.ImagePath!=''" imageonload1 />
          <img data-ng-if="_obj.ImagePath==null || _obj.ImagePath==''" src="img/23.jpg" alt="Alternate Text" />
 </div>
 
-     <!--<div style="background:#fff;" class="swiper-slide "> 
-      <img style="width:100%; height:inherit"  src="img/36.jpg" alt="Alternate Text" />
-</div>
+     <!--
 
      <div style="background:#000;" class="swiper-slide">
           <img style="width:100%; height:inherit" src="img/50.jpg" alt="Alternate Text" />
