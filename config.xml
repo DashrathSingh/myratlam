@@ -4,14 +4,14 @@
         id        = "com.NathdwaraMartNew"
         version   = "0.0.3">
   
-  <name>Nathdwara mart</name>
+  <name>Tech Udaipur</name>
 
   <description>
-   NATHDWARA MART 
+    Tech Udaipur
   </description>
   
-  <author href="http://www.Nathdwara.com/" email="Nathdwara.com">
-   NATHDWARA Team
+  <author href="http://techudaipur.com/" email="http://techudaipur.com/">
+    Tech Udaipur
   </author>
  
   <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>

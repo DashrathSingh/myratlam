@@ -35,6 +35,26 @@ app.controller('loginController', ['$scope','localStorageService', '$location', 
 
     $scope.Category = { ID: 0, Name: "", Status: "", Sort: "", ImageSrc: "" }
 
+
+
+    $scope.OpenmenuModal = function () {
+
+        if ($("body").hasClass("modal-open")) {
+            $("#myModal2").modal('hide');
+
+            $(".menubtn .fa").removeClass('fa-times').addClass('fa-plus')
+
+        }
+        else {
+            $("#myModal2").modal('show');
+            $(".menubtn .fa").removeClass('fa-plus').addClass('fa-times');
+        }
+    }
+
+
+
+
+
     $scope.GetTempmethod = function () {
 
         $.ajax({

@@ -210,7 +210,7 @@
         color: #fff;
         line-height: 50px;
         margin-top: 17px;
-        border-radius: 100%;
+     
         position: absolute;
         background: #70b9f3;
         font-size: 25px;
@@ -254,8 +254,12 @@
         border-radius: 0px;
     }
 
-    .newlistitem {
-        border-bottom: 1px solid #eaeaea;
+    .newlistitem:nth-child(even) {
+       background:#eee;
+    }
+
+       .newlistitem:nth-child(odd) {
+       background:#fff;
     }
 
     #toolbar {
@@ -312,9 +316,9 @@
 
 
 
-<div style="margin-bottom:0px;" class="searchsec red">
+<div style="margin-bottom:0px;" class="searchsec pink">
     <div class="">
-        <input type="text" placeholder="Type to Quick search" class="form-control" data-ng-change="GetShops()" data-ng-model="Searchstring" name="name" value="" />
+        <input type="text" placeholder="Type to search {{categaryname}}" class="form-control" data-ng-change="GetShops()" data-ng-model="Searchstring" name="name" value="" />
     </div>
 </div>
 
@@ -322,9 +326,7 @@
 
 <ul class=" widget-products">
 
-      <li data-ng-if="totalrecord!=true && totalrecord!='true'" style="padding-bottom:10px; padding-top:10px; background:#a09a9a ; text-align:center;" class="" >
-    <span class="" style="font-family:verdana; text-align:center; background:#a09a9a ; color:#fff; font-size:17px; "> {{categaryname}}</span> 
-</li>
+    
     <li data-ng-if="totalrecord==true || totalrecord=='true'">
 
         <div style="background:#eeeeee;" class="well">
