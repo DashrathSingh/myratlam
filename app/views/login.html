@@ -10,7 +10,7 @@
 
     .cat p {
 
-background-color: rgba(0,0,0,0.8);
+background-color: rgba(0,0,0,0.7);
     color: #fff;
     width: 100%;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
@@ -35,7 +35,7 @@ background-color: rgba(0,0,0,0.8);
 
     .swiper-slide {
 
-       height: 180px;
+       height: 150px;
     font-size: 31px;
     text-align: center;
     line-height: 113px;
@@ -100,35 +100,16 @@ background-color: rgba(0,0,0,0.8);
     }
 
     .leftarrow {
-      position: absolute;
-    z-index: 100;
-    background: #fff !important;
-    border-radius: 100% !important;
-    padding-top: 13px;
-    padding-bottom: 12px;
-    margin-top:-2px;
+        position:absolute;
+        z-index:100;
     }
 
     
 
     .mytextbox {
-       width: 100%;
-    padding-top: 7px;
-    padding-bottom: 7px;
-    background: transparent !important;
-    border: none !important;
-    border-bottom: 2px solid #fff !important;
-    box-shadow:none !important;
-    color   :#fff;
-    font-size:16px;
-    }
-
-    mytextbox:focus {
-          background: transparent;
-    border: none;
-    border-bottom: 2px solid #fff;
-      box-shadow:none !important;
-
+        width:100%;
+        padding-top:7px;
+        padding-bottom:7px;
     }
 
    .searcharea {
@@ -136,7 +117,7 @@ background-color: rgba(0,0,0,0.8);
     width: 100%;
     top: 0px;
     height: 56px;
-   
+    background: #eee;
     z-index: 10;
     padding-left:5px;
     padding-right:5px;
@@ -252,13 +233,50 @@ background-color: rgba(0,0,0,0.8);
     word-break: break-all;
    
 }
+
+
+    .sharebtn {
+
+        position: fixed;
+    bottom: 23px;
+    right: 25px;
+    z-index: 13000;
+    color: #fff !important;
+    height: 60px;
+    width: 60px;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 73px;
+   
+    cursor: pointer;
+    padding: 0;
+    }
+
+        .sharebtn i {
+             font-size: 35px;
+        }
+
+
+
+    .badge {
+
+        position:absolute;
+        margin-top:-25px;
+        z-index:10;
+        display:block;
+        margin-left:5px;
+        min-width:50px;
+
+    }
+
+    
 </style>
 
 
 
 
 
-<div style="display:none;" class="searcharea pink">
+<div style="display:none;" class="searcharea">
 
     <div style="margin-top:7px;" class="input-group">
         <span data-ng-click="showheader()" class="input-group-addon leftarrow"> 
@@ -277,66 +295,85 @@ background-color: rgba(0,0,0,0.8);
 
 
 
-<div style="position:relative;">
-      <a onclick="window.plugins.socialsharing.share('Nathdwara Mart', null, null, 'https://play.google.com/store/apps/details?id=com.nathdwaramart.nathdwaramart&hl=en')" class="sharebtn green" >
-        <i class="fa fa-share-alt"></i>
-    </a>
-    <div class="swiper-container">
-<div class="swiper-wrapper">
 
-   <!-- <div ng-if="dynamicimage==false" style="background:#fff;" class="swiper-slide "> 
+<div class="swiper-container">
+<div class="swiper-wrapper">
+     <div  style="background:#fff;" class="swiper-slide "> 
       <img style="width:100%; height:inherit"  src="img/36.jpg" alt="Alternate Text" />
 </div>
+
+     <div  style="background:#fff;" class="swiper-slide "> 
+      <img style="width:100%; height:inherit"  src="img/37.jpg" alt="Alternate Text" />
+</div>
+
+
+<!--    <div ng-if="dynamicimage==false" style="background:#fff;" class="swiper-slide "> 
+      <img style="width:100%; height:inherit"  src="img/36.jpg" alt="Alternate Text" />
+</div>-->
 
      <div ng-if="dynamicimage==true" style="background:#fff;" class="swiper-slide" ng-repeat="_obj in FeaturedImages"> 
 
          <img style="width:100%; height:inherit" src="{{FeaturedImageUrl}}{{_obj.ImagePath}}" data-ng-if="_obj.ImagePath!=null && _obj.ImagePath!=''" imageonload1 />
          <img data-ng-if="_obj.ImagePath==null || _obj.ImagePath==''" src="img/23.jpg" alt="Alternate Text" />
-</div>-->
+</div>
 
-     
+     <!--
 
-
-     <div style="background:#fff;" class="swiper-slide">
-          <img style="width:100%; height:inherit" src="img/logo.png" alt="Alternate Text" />
+     <div style="background:#000;" class="swiper-slide">
+          <img style="width:100%; height:inherit" src="img/50.jpg" alt="Alternate Text" />
     </div>
 
-    <div style="background:#fff;" class="swiper-slide">
-        <img style="width:100%; height:inherit" src="img/101.jpg" alt="Alternate Text" />
+    <div style="background:red;" class="swiper-slide">
+        <img style="width:100%; height:inherit" src="img/33.jpg" alt="Alternate Text" />
     </div>
 
    
 <div style="background:#fff;" class="swiper-slide "> 
-      <img style="width:100%; height:inherit"  src="img/102.jpg" alt="Alternate Text" />
+      <img style="width:100%; height:inherit"  src="img/35.jpg" alt="Alternate Text" />
 </div>
    
    
      <div style="background:#fff;" class="swiper-slide "> 
-      <img style="width:100%; height:inherit"  src="img/103.jpg" alt="Alternate Text" />
-</div>
+      <img style="width:100%; height:inherit"  src="img/45.jpg" alt="Alternate Text" />
+</div>-->
 
 </div>
  
 <div class="swiper-pagination"></div>
-
-  
-
-</div>
 </div>
 
 
 
-
-
+<div style="background:#cac6c6; margin-left:0px; margin-right:0px;" class="row">
+    <div style="padding-left:0px; padding-right:0px; text-align:center;" class="col-xs-4">
+         <img style="width:100%; border-right:2px solid #fff" data-ng-click="darshan()" src="img/namkeen.png" alt="Alternate Text" />
+        <p class="badge">Namkeen</p>
+    </div>
+     <div style="text-align:center; padding:0px; text-align:center;" class="col-xs-4">
+           <img data-ng-click="train()"style="width:100%; border-left:1px solid #fff; border-right:1px solid #fff;" src="img/ts.jpg" alt="Alternate Text" />
+           <p class="badge" style="margin-left:7px;">Train</p>
+     </div>
+     <div style="padding-right:0px; padding-left:0px; text-align:center;" class="col-xs-4">
+           <img style="width:100%; border-left:2px solid #fff" data-ng-click="bus()" src="img/bs.jpg" alt="Alternate Text" />
+           <p class="badge" style="margin-left:9px;">Bus</p>
+     </div>
+</div>
 
 <div class="categoryhead">
     <div class="row">
-    
 
-      <div style="padding-right:5px;" class="col-xs-12">
-          <h5 style="font-family:cursive;">What you want !</h5>
+
+
+      <div style="padding-right:5px;" class="col-xs-8">
+          <h5>Looks for one of below !!</h5>
       </div>
-      
+      <div style="padding-right:7px;" class="col-xs-4">
+          <div class="pull-right">
+                <i style="margin-right:10px;" data-ng-click="showgrid()" class="fa fa-th"></i>
+              <i data-ng-click="showlist()" class="fa fa-th-list"></i>
+              
+          </div>
+      </div>
         </div>
 </div>
 
@@ -369,8 +406,6 @@ background-color: rgba(0,0,0,0.8);
 
 
 
-
-
 <div style="padding-left:6px; " data-ng-if="listview==true && isload==false"">
     
     <table  class="listtable" style="width:100%; background:#eaeaea;">
@@ -392,31 +427,13 @@ background-color: rgba(0,0,0,0.8);
 </div>
 
 
+<a class="pink sharebtn" onclick="window.plugins.socialsharing.share('Nathdwara Mart', null, null, 'https://play.google.com/store/apps/details?id=com.nathdwaramart.nathdwaramart&hl=en')">
+    <i class="fa fa-share-alt"></i>
+</a>
+
+
 <a class="cd-top" onclick="scrollToTop()" title="Go to top"><i class="fa fa-chevron-up"></i></a>
-<a ng-click="OpenmenuModal()" class="menubtn pink waves-effect btn-info btn-floating ng-scope" >
-      +
-    </a>
-
-<div id="myModal2" class="modal bottommenu fade" >
-
-        <div class="modal-body">
-            <ul class="animated slideInUp selectAction">
-                   
-         
-                 <li data-ng-click="showlist()" class="bottomlink ng-scope" ><span>List View</span><a class="waves-effect btn-info btn pink"  data-dismiss="modal"> <i class="fa fa-th-list"></i> </a></li><!-- end ngIf: totalrecords!=0 &&_areZeroRecordsShown==true -->
-                  <li data-ng-click="showgrid()" class="bottomlink ng-scope" ><span>Grid View</span><a class="waves-effect btn-info btn blue"  data-dismiss="modal"> <i class="fa fa-th"></i> </a></li><!-- end ngIf: totalrecords!=0 &&_areZeroRecordsShown==true -->
-                <li class="bottomlink ng-scope" ><span>Flight details</span><a class="waves-effect btn-info btn red"  data-dismiss="modal"> <i class="fa fa-plane"></i> </a></li><!-- end ngIf: totalrecords!=0 &&_areZeroRecordsShown==true -->
-                <li class="bottomlink"><span>Bus details</span><a class=" waves-effect btn-primary btn green" data-dismiss="modal"> <i class="fa fa-bus"></i>  </a></li>
-                <li  class="bottomlink"><span data-dismiss="modal">Train details</span><a  class=" waves-effect btn-primary btn purple" data-dismiss="modal"> <i class="fa fa-train"></i>  </a></li>
-            </ul>
-        </div>
-    </div>
-
 <script>
-
-
-
-
 
     var offset = 50;
     //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
@@ -440,92 +457,3 @@ background-color: rgba(0,0,0,0.8);
         }
     });
 </script>
-
-<style>
-    
-
-
-
-#myModal2 {
-    position: fixed;
-    right: 13px;
-    font-size: 18px;
-    text-align: right;
-    display: none;
-    background: transparent;
-    overflow: hidden;
-}
-
-    #myModal2 span {
-     font-size: 14px;
-    font-family: verdana;
-    margin-right: 7px;
-    background: #fff;
-    /* min-width: 200px; */
-    width: 116px;
-    text-align: -webkit-center;
-    display: inline-block;
-    padding: 2px;
-    box-shadow: -3px 4px 10px #888;
-    }
-
-
-    #myModal2 .modal-body {
-        background: transparent;
-    }
-
-    .selectAction {
-    position: fixed;
-    bottom: 75px;
-    right: 35px;
-}
-
-    .selectAction li {
-    list-style-type: none;
-}
-
-
-    .selectAction .btn {
-    height: 40px;
-    width: 40px;
-    padding: 0px;
-    border-radius: 100%;
-    text-align: center;
-    line-height: 40px;
-    border: transparent;
-    margin-bottom: 5px;
-    color: #fff;
-}
-
-    .menubtn {
-      position: fixed;
-    bottom: 23px;
-    right: 25px;
-   
-    z-index: 13000;
-    color: #fff !important;
-    height: 60px;
-    width: 60px;
-    border-radius: 100%;
-    text-align: center;
-    line-height: 56px;
-    font-size: 35px;
-    cursor: pointer;
-    padding: 0;
-}
-
-    .sharebtn {
-      height: 50px;
-    width: 50px;
-    border-radius: 100%;
-    text-align: center;
-    line-height: 50px;
-    font-size: 21px;
-    display: block;
-    color: #fff !important;
-    position: absolute;
-    z-index: 10;
-    right: 25px;
-    margin-top: 155px;
-    }
-</style>

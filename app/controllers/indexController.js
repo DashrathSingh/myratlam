@@ -54,7 +54,7 @@ app.controller('indexController', ['$scope', 'localStorageService', 'authService
         $("#toolbar").hide();
         $(".searcharea").show();
 
-     
+        $(".mytextbox").focus();
       
 
     }
