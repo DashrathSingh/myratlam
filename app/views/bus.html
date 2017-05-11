@@ -106,8 +106,9 @@
                 <div class="form-group">
 
                 <label> From</label>
-                <select class="form-control">
-                    <option value="Nathdwara">Nathdwara</option>
+                <select class="form-control" ng-model="From">
+                    <option value="Ratlam">Ratlam</option>
+                    <option value="Ratlam2">Ratlam2</option>
                 </select>
                     </div>
             </div>
@@ -131,7 +132,7 @@
        
              <td class="blue">TIME </td>
             </tr>
-        <tr data-ng-repeat="obj in BusTimings | filter : Search"">
+        <tr data-ng-repeat="obj in BusTimings | filter:{From: From, To:Search}: true">
             <td  data-ng-class="{'purple': $index % 2 === 0 }" class="pink">
                 <p class="darshan"> {{obj.Name}} </p>
             </td>
@@ -155,5 +156,14 @@
 
 
 
-
+<script>
+    $(document).ready(function () {
+        var allSelectElements = document.getElementsByTagName('select');
+        for (var i = 0; i < allSelectElements.length; i++) {
+            allSelectElements[i].addEventListener('touchstart', function (e) {
+                e.stopPropagation();
+            }, false);
+        }
+    });
+</script>
 

@@ -66,41 +66,64 @@
      .mainloader {
         top:45%;
     }
+
+
+      .head {
+        color: #fff;
+    margin-top: -29px;
+    text-align: center;
+    font-family: cursive;
+    font-size:20px;
+    }
+
+
+    .well {
+        padding:2px !important;
+        margin-top:-5px;
+    }
+
+    .traindata {
+       
+    background: #fff;
+    padding: 5px;
+    border-bottom:1px solid #ccc;
+    }
+
+        .traindata p {
+
+            font-size:13px;
+        }
+
+        .traindata h4 {
+            font-size:18px;
+            margin-left:3px;
+        }
    
 </style>
 
-<div data-ng-if="isload==true || isload=='true'" class="mainloader">
-        <img style="width:60px;" src="img/loader.gif" alt="Alternate Text" />
+<img style="width:100%; margin-top:-25px;" src="img/sev.jpg" alt="Alternate Text" />
+
+
+<div class="traindata" data-ng-repeat="obj in shops | filter : Search">
+        <h4>{{obj.Name}}</h4>
+        <div class="row">
+
+            <div class="col-xs-12">
+                <a style="position:absolute; right:25px; margin-top:-7px;" tel="{{obj.Contact1}}"> <i style="font-size:45px; color:chocolate" class="fa fa-phone-square" aria-hidden="true"></i></a>
+
+                <p> <b> {{obj.OwnerName}} </b> </p>
+                <p>Contact. {{obj.Contact1}} </p>
+                  <p>Address. {{obj.Address1}}</p>
+                  <p style="font-size:12px; color:#888;">{{obj.Description}}</p>
+            </div>
+             
+            
+        </div>
+
     </div>
-<div>
-    <img style="width:100%; max-height:150px; margin-top:6px;" src="img/shr.jpg" alt="Alternate Text" />
-
-   
-</div>
-<div class="well">
- 
 
 
-    <table class="table table-bordered">
 
-        <tr>
-            <td> DARSHAN</td>
-                 <td>TIME [Open - Close] </td>
-            </tr>
-        <tr data-ng-repeat="obj in DarshanTimings">
-            <td width="40%;" >
-                <p class="darshan"> {{obj.Name}} </p>
-            </td>
-             <td   width="60%">
-                 {{obj.OpenTime}} to  {{obj.CloseTime}}
-             </td>
-        </tr>
-    </table>
- 
-   
-    
-
-</div>
 
 
 
