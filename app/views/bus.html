@@ -106,9 +106,8 @@
                 <div class="form-group">
 
                 <label> From</label>
-                <select class="form-control" ng-model="From">
-                    <option value="Ratlam">Ratlam</option>
-                    <option value="Ratlam2">Ratlam2</option>
+                <select class="form-control" ng-model="From" >
+                    <option value="{{obj.From}}" data-ng-repeat="obj in BusTimings | unique: 'From'">{{obj.From}}</option>
                 </select>
                     </div>
             </div>
