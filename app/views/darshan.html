@@ -104,12 +104,15 @@
 <img style="width:100%; margin-top:-25px;" src="img/sev.jpg" alt="Alternate Text" />
 
 
+<input style="width:96%; margin:0 auto;  margin-top:10px;" class="form-control" type="text" placeholder="Type to search" data-ng-model="Search" name="name" value="" />
+
+
 <div class="traindata" data-ng-repeat="obj in shops | filter : Search">
         <h4>{{obj.Name}}</h4>
         <div class="row">
 
             <div class="col-xs-12">
-                <a style="position:absolute; right:25px; margin-top:-7px;" href="tel:+91{{obj.Contact1}}"> <i style="font-size:45px; color:chocolate" class="fa fa-phone-square" aria-hidden="true"></i></a>
+                <a style="position:absolute; right:25px;  margin-top:-7px;" href="tel:+91{{obj.Contact1}}"> <i style="font-size:45px; color:chocolate" class="fa fa-phone-square" aria-hidden="true"></i></a>
 
                 <p> <b> {{obj.OwnerName}} </b> </p>
                 <p>Contact.   {{obj.Contact1}}</p>
