@@ -105,7 +105,7 @@
             <div class="col-md-6">
                 <div class="form-group">
 
-                <label> From</label>
+                <label> Select your bus stop</label>
                 <select class="form-control" ng-model="From">
                     <option value="">Select from</option>
                     <option value="{{obj.From}}" data-ng-repeat="obj in BusTimings | unique: 'From'">{{obj.From}}</option>
@@ -114,14 +114,16 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group">
-                    <label> To</label>
+                    <input class="form-control" placeholder="Type to search" type="text" data-ng-model="Search" name="name" value=" " />
+                   <!-- <label> To</label>
                     <select data-ng-model="Search" class="form-control">
                         <option value="">Select to</option>
                         <option value="{{obj.To}}" data-ng-repeat="obj in BusTimings | unique: 'To'">{{obj.To}}</option>
-                    </select>
+                    </select>-->
                 </div>
             </div>
         </div>
+
 
     </div>
     <table class="table table-bordered">
@@ -132,7 +134,7 @@
        
              <td class="blue">TIME </td>
             </tr>
-        <tr data-ng-repeat="obj in BusTimings | filter:{From: From, To:Search}: true">
+        <tr data-ng-repeat="obj in BusTimings | filter:{From: From}: true | filter: Search">
             <td  data-ng-class="{'purple': $index % 2 === 0 }" class="pink">
                 <p class="darshan"> {{obj.Name}} </p>
             </td>
