@@ -1,33 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.NathdwaraMartNew"
-        version   = "0.0.6">
+        id        = "com.myratlam"
+        version   = "1.0.2">
   
-  <name>Nathdwara mart</name>
+  <name>My Ratlam</name>
 
   <description>
-   NATHDWARA MART 
+  My Ratlam
   </description>
   
-  <author href="http://www.Nathdwara.com/" email="Nathdwara.com">
-   NATHDWARA Team
+  <author href="http://www.Myratlam.com/" email="ratlam.com">
+My Ratlam Team
   </author>
+ 
+  <!--<gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+  --><!--gap:plugin name="org.apache.cordova.statusbar" spec="0.1.4" source="pgb" /--><!--
+  <gap:plugin name="com.phonegap.plugin.statusbar" version="1.1.0" />
+  <gap:plugin name="org.apache.cordova.camera" />
+  <gap:plugin name="org.apache.cordova.file" />
+  <gap:plugin name="org.apache.cordova.file-transfer" />
+  <gap:plugin name="org.apache.cordova.network-information" />
+  <gap:plugin name="de.phonostar.softkeyboard-custom" spec="0.1.1" source="pgb" />
+  <gap:plugin name="org.apache.cordova.geolocation"/>
+  <gap:plugin name="org.apache.cordova.dialogs"/>
+  <gap:plugin name="org.apache.cordova.vibration"/>
+  <gap:plugin name="ionic-plugin-keyboard"  source="npm" version="1.0.7" />
+  <gap:plugin name="org.apache.cordova.splashscreen" />
 
-
-
-  <plugin name="cordova-plugin-camera" source="npm" spec="*">
-    <variable name="CAMERA_USAGE_DESCRIPTION" value="App would like to access the camera." />
-    <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
-  </plugin>
+  <gap:plugin name="net.bgta.phonegap.plugin.appversion" source="pgb"/>-->
+  
+  
+   <plugin name="phonegap-plugin-barcodescanner" source="npm"/>
+  <plugin name="cordova-plugin-statusbar" source="npm"/>
+  
+  <plugin name="cordova-plugin-camera" source="npm" spec="~2.1.1"/>
 
   <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
 
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
 
-  <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
-  
-  
+  <plugin name="org.apache.cordova.network-information" source="npm"/>
+  <plugin name="org.apache.cordova.splashscreen" source="npm"/>
+  <plugin name="ionic-plugin-keyboard" source="npm"/>
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+<plugin name="cordova-plugin-x-socialsharing" source="npm" />
   <feature name="http://api.phonegap.com/1.0/device" />
   <feature name="debug-server" required="true">
     <param name="domain" value="http://debug.phonegap.com"/>
@@ -51,14 +68,12 @@
 <preference name="HideKeyboardFormAccessoryBar" value="true"/>
   <preference name="KeyboardShrinksView" value="true" />
   <preference name="SplashScreenDelay" value="5000"/>
-  <preference name="android-minSdkVersion"      value="14" />
-<preference name="android-targetSdkVersion"   value="23" />
   <icon src="icon.png" />
 
-  <icon src=".pgbomit/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
-  <icon src=".pgbomit/res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
-  <icon src=".pgbomit/res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:density="hdpi" />
-  <icon src=".pgbomit/res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:density="xhdpi" />
+  <icon src=".pgbomit/res/icon/android/icon-36-ldpi.jpg"   gap:platform="android"    gap:density="ldpi" />
+  <icon src=".pgbomit/res/icon/android/icon-48-mdpi.jpg"   gap:platform="android"    gap:density="mdpi" />
+  <icon src=".pgbomit/res/icon/android/icon-72-hdpi.jpg"   gap:platform="android"    gap:density="hdpi" />
+  <icon src=".pgbomit/res/icon/android/icon-96-xhdpi.jpg"  gap:platform="android"    gap:density="xhdpi" />
   
   
   

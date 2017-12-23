@@ -1,0 +1,554 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>Demo</title>
+
+
+    <link href="http://nm.myratlam.com/App/content/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="http://nm.myratlam.com/App/css/materialize.min.css" rel="stylesheet" />
+     <link href="http://nm.myratlam.com/App/css/style.css" rel="stylesheet" />
+
+      <link href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+       <style>
+        [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x- ng-cloak {
+            display: none !important;
+        }
+
+        .input-group {
+            width: 100%;
+        }
+
+        .side-nav {
+            z-index: 1500;
+        }
+
+        .sidebar-nav li a.active {
+            background: #0083C7;
+            color: #fff;
+        }
+
+        .newcartcounter {
+            border-radius: 100%;
+            background: #fff;
+            color: #333;
+            text-align: center;
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            line-height: 26px;
+            margin-bottom: 3px;
+            vertical-align: middle;
+        }
+
+
+        .select2-container {
+            width: 100% !important;
+        }
+
+
+        .navbar-inverse {
+            background-color: #128ece !important;
+        }
+
+        #list321 img {
+            position: absolute;
+        }
+
+
+
+        label {
+            font-size: 17px;
+        }
+
+        .page-header {
+            margin-top: 22px;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            color: #fff;
+            border-bottom: transparent;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+
+
+        .topheader {
+            width: 100%;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            font-size: 24px;
+            color: #fff;
+            background: #0083C7;
+            z-index: 100;
+        }
+
+            .topheader .col-xs-6 {
+                text-align: center;
+            }
+
+            .topheader a {
+                color: #fff !important;
+                border: transparent;
+                padding-left: 0px;
+            }
+
+            .topheader i {
+                font-size: 17px;
+                margin-top: 7px;
+            }
+
+
+
+
+            .topheader .headerdropdown i {
+                font-size: 15px;
+            }
+
+        .fa-arrow-circle-left {
+            margin-top: 2px !important;
+            font-size: 28px !important;
+        }
+
+
+        .btn-md {
+            text-align: left;
+        }
+
+        .form-control {
+            border-radius: 5px;
+            min-width: 95%;
+        }
+
+        .maincontent {
+            padding: 9px;
+            background: #f2f2f2;
+        }
+
+        .scnbtn {
+            border-radius: 0px;
+        }
+
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            height: 75px;
+            width: 100px;
+            text-align: center;
+            padding-left: 5px !important;
+            padding-right: 5px !important;
+            border-radius: 4px !important;
+            margin-top: 0px !important;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+
+        .select2-container--default .select2-selection--single {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            height: 50px;
+        }
+
+        .headerdropdown ul {
+            margin-left: -110px;
+        }
+
+
+        .headerdropdown li a {
+            color: #000 !important;
+            font-size: 14px;
+            padding: 12px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .headerdropdown img {
+            height: 38px;
+            width: 38px;
+            border-radius: 100%;
+            border: 2px solid #e5e5e5;
+            margin-top: 2px;
+        }
+
+
+
+        .container {
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+
+        .nointernet {
+            width: 100%;
+            color: #fff;
+            background-color: #333;
+            border: #fcf8e3;
+            position: fixed;
+            font-size: 12px;
+            bottom: 0px;
+            z-index: 1;
+            display: none;
+            padding-top: 0px;
+        }
+
+        .nointernet h3 {
+
+                font-size: 16px;
+    padding-left: 5px;
+    float: left;
+        }
+
+        .nointernet p {
+             float: right;
+    padding-right: 10px;
+    padding-top: 17px;
+    color: #ea9106;
+        }
+
+        .removeImage {
+            padding: 7px;
+            padding-top: 0px;
+            margin-top: -77px;
+            margin-left: -29px;
+            border-radius: 100%;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .btn {
+            font-size: 16px;
+        }
+
+        .arrow-right {
+            border-left: 1px solid #fff !important;
+        }
+
+        .bootstrap-switch-primary {
+            background: #0083C7 !important;
+        }
+
+        .activitylist .bottomlink {
+            width: 155px;
+            float: right;
+        }
+    </style>
+    <style>
+        #itemlistmodal {
+            background: rgba(255,255,255,0.9);
+            background-color: rgba(255,255,255,0.9);
+        }
+
+        #locationlistmodal {
+            background: rgba(255,255,255,0.9);
+            background-color: rgba(255,255,255,0.9);
+        }
+    </style>
+    <style>
+        #mysmallModalSave {
+            top: 30%;
+            overflow: hidden;
+            position: fixed;
+            z-index: 1050;
+            display: none;
+            text-align: center;
+            padding: 20px !important;
+            width: 100%;
+        }
+
+        .waitingContent {
+            background: rgba(71, 79, 88, 0.8);
+            padding: 10px;
+            margin: 0 auto;
+            z-index: 1050;
+            text-align: center;
+        }
+
+        #mysmallModalWaiting {
+            bottom: 0;
+            overflow: hidden;
+            position: fixed;
+            z-index: 1050;
+            display: none;
+            text-align: center;
+            width: 100%;
+            left: 0;
+            right: 0;
+            font-size: 14px;
+        }
+
+
+        #mysmallModal {
+            top: 30%;
+            overflow: hidden;
+            position: fixed;
+            z-index: 1050;
+            display: none;
+            text-align: center;
+            padding: 20px !important;
+            width: 100%;
+        }
+
+        #myloginModal {
+            top: 30%;
+            overflow: hidden;
+            position: fixed;
+            z-index: 1050;
+            display: none;
+            text-align: center;
+            padding: 20px !important;
+            width: 100%;
+        }
+
+
+        .errorcontent {
+            background: rgba(52, 73, 94,0.8);
+            padding: 10px;
+            margin: 0 auto;
+            width: 150px;
+            z-index: 1050;
+        }
+
+
+
+        .bgColorTransparent {
+            background-color: transparent !important;
+        }
+
+        .bluearea {
+            min-height: 50px;
+            padding-left: 42px;
+            background: #0083C7;
+            color: #fff;
+            text-align: left;
+            padding-bottom: 2px;
+        }
+
+        #viewdata {
+            margin-top: 50px;
+        }
+
+        .cat p {
+    background-color: rgba(0,0,0,0.7);
+    color: #fff;
+    width: 100%;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+    filter: alpha(opacity=50);
+    padding: 3px;
+    position: relative;
+    font-family: Verdana;
+    margin-top: -25px;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+        .notwrap {
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+        .col-md-2 {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+        .row {
+            margin-left:2px;
+            margin-right:2px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="red" id="toolbar" style="display: block;">
+        <div class="open-left" id="side-left">
+            <i class="fa fa-navicon"></i>
+        </div>
+
+        <span style="color: #fff;" class="title">NATHDWARA MART</span>
+
+
+        <div class="dropdown open-right">
+            <a data-ng-click="showsearch()" style="padding: 12px;" class="dropdown-toggle "><i class="fa fa-search"></i></a>
+        </div>
+
+    </div>
+    <br />
+    <br />
+    <br />  <br /> 
+
+
+    <div class="modal-body">
+
+        <ul>
+            <li>
+                <a onclick="capturePhotoNew();"> <i class="fa fa-camera"></i> Capture Photo</a>
+            </li>
+            <li>
+
+                <!--<a ng-click="triggerFileClick()"><i class="fa fa-picture-o"></i> From Photo Library</a>-->
+                <a onclick="getPhoto()"><i class="fa fa-picture-o"></i> From Photo Library</a>
+            </li>
+
+            <li style="background:#9e9e9e;">
+                <a data-dismiss="modal"><i class="fa fa-times"></i> Cancel</a>
+            </li>
+        </ul>
+
+
+
+    </div>
+
+
+    <div class="cat row">
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="36" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div1" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div2" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div3" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div4" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div5" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+        <div  class="col-md-2 col-xs-6 ">
+        <div id="Div6" style="width:100%">
+          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
+        
+            <p class="notwrap ng-binding">Electrician</p>
+        </div>
+    </div>
+    </div>
+    
+     <script src="http://nm.myratlam.com/App/scripts/jquery-1.11.0.min.js"></script>
+    <script src="http://nm.myratlam.com/App/cordova.js"></script>
+
+
+    <script>
+
+        function onPhotoURISuccessNew (imageData) {
+            var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
+
+            imageData = "data:image/jpeg;base64," + imageData;
+
+            var id = randomStringNew(5, '0123456789');
+            _ImgObj.ImageID = id;
+
+            $(".viewimage").show();
+            $("#myModalforlist").modal("hide");
+
+
+        
+            _ImgObj.bytestring = imageData;
+        
+
+        }
+
+        function getPhoto(source) {
+
+            alert("2");
+            // Retrieve image file location from specified source
+            navigator.camera.getPicture(onPhotoURISuccessNew, onFail, {
+                quality: 50,
+                destinationType: destinationType.DATA_URL,
+                correctOrientation: true,
+                sourceType: pictureSource.PHOTOLIBRARY
+            });
+        }
+       function onPhotoDataSuccessNew (imageData) {
+            var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
+
+            imageData = "data:image/jpeg;base64," + imageData;
+
+            var id = randomStringNew(5, '0123456789');
+            _ImgObj.ImageID = id;
+
+            $("#myModalforlist").modal("hide");
+
+
+            _ImgObj.FileName = "IphoneCapture";
+            _ImgObj.bytestring = imageData;
+       
+       
+
+        }
+
+      function onFail (message) {
+
+            log.error('Failed because: ' + message);
+        }
+      function capturePhotoNew() {
+
+          alert("1");
+
+            navigator.camera.getPicture(onPhotoDataSuccessNew,onFail, {
+                quality: 50,
+                targetWidth: 120,
+                targeHeight: 120,
+                correctOrientation: true,
+                destinationType: destinationType.DATA_URL,
+                allowEdit: true,
+                saveToPhotoAlbum: true,
+            });
+        }
+    </script>
+    
+</body>
+</html>
