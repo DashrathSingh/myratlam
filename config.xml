@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id        = "com.NathdwaraMartNew"
-        version   = "0.0.6">
-  
-  <name>Nathdwara mart</name>
+        id        = "com.myratlam"
+        version   = "1.0.2">
+
+  <name>My Ratlam</name>
 
   <description>
-   NATHDWARA MART 
+    My Ratlam
   </description>
   
   <author href="http://www.Nathdwara.com/" email="Nathdwara.com">
-   NATHDWARA Team
+    My Ratlam
   </author>
 
 
@@ -25,7 +25,6 @@
 
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
 
-  <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
   
   
   <feature name="http://api.phonegap.com/1.0/device" />
