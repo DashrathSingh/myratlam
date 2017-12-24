@@ -426,34 +426,7 @@
 
 
     <div class="cat row">
-        <div  class="col-md-2 col-xs-6 ">
-        <div id="36" style="width:100%">
-          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
-        
-            <p class="notwrap ng-binding">Electrician</p>
-        </div>
-    </div>
-        <div  class="col-md-2 col-xs-6 ">
-        <div id="Div1" style="width:100%">
-          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
-        
-            <p class="notwrap ng-binding">Electrician</p>
-        </div>
-    </div>
-        <div  class="col-md-2 col-xs-6 ">
-        <div id="Div2" style="width:100%">
-          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
-        
-            <p class="notwrap ng-binding">Electrician</p>
-        </div>
-    </div>
-        <div  class="col-md-2 col-xs-6 ">
-        <div id="Div3" style="width:100%">
-          <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
-        
-            <p class="notwrap ng-binding">Electrician</p>
-        </div>
-    </div>
+      
         <div  class="col-md-2 col-xs-6 ">
         <div id="Div4" style="width:100%">
           <img style="width: 100%; height: 150px;" src="http://nm.myratlam.com//Images/0de215e7-dd5b-471a-9717-3d4f830d01c3.jpg" data-ng-if="obj.ImagePath!=null &amp;&amp; obj.ImagePath!=''" >
@@ -481,7 +454,29 @@
     <div data-ng-app="myApp" data-ng-controller="myCtrl">
         <a data-ng-click="Scanitem()" href="#">content</a>
 
+
+
         <input data-ng-model="itemscanvalue" type="text" name="name"  />
+
+
+
+
+          <ul>
+                <li>
+                   <!--<input id="files" type="file" name="name" value=" " />-->
+                    <a data-ng-click="capturePhotoNew();"> <i class="fa fa-camera"></i> Capture Photo</a>
+                </li>
+                <li>
+
+                    <!--<a ng-click="triggerFileClick()"><i class="fa fa-picture-o"></i> From Photo Library</a>-->
+                    <a data-ng-click="getPhoto()"><i class="fa fa-picture-o"></i> From Photo Library</a>
+                </li>
+
+                <li style="background:#9e9e9e;">
+                    <a  data-dismiss="modal"><i class="fa fa-times"></i> Cancel</a>
+                </li>
+            </ul>
+
 
         <div data-ng-repeat="obj in datalist">
             <p> {{obj.title}} </p>
@@ -561,76 +556,102 @@
 
             init();
 
+            function randomString(length, chars) {
+                var result = '';
+                for (var i = length; i > 0; --i) result += chars[Math.floor(Math.random() * chars.length)];
+                return result;
+            }
+
+            $scope.onPhotoDataSuccessNew = function (imageData) {
+
+
+                alert("Photosuccess In");
+
+                $("#bottommenumodal").modal('hide');
+
+                var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
+
+                imageData = "data:image/jpeg;base64," + imageData;
+
+                var id = randomStringNew(5, '0123456789');
+                _ImgObj.ImageID = id;
+                $(".viewimage").show();
+
+                $("#myModalforlist").modal("hide");
+
+
+                _ImgObj.FileName = "IphoneCapture";
+                _ImgObj.bytestring = imageData;
+          
+                $scope.$apply();
+
+            }
+
+            $scope.onFail = function (message) {
+
+                alert("Photo Error" + message);
+
+                log.error('Failed because: ' + message);
+            }
+
+
+            $scope.capturePhotoNew = function () {
+
+                alert("Capture photo");
+
+                navigator.camera.getPicture($scope.onPhotoDataSuccessNew, $scope.onFail, {
+                    quality: 50,
+                    targetWidth: 120,
+                    targeHeight: 120,
+                    correctOrientation: true,
+                    destinationType: destinationType.DATA_URL,
+                    saveToPhotoAlbum: true,
+                });
+            }
+
+            $scope.viewimages = function () {
+                $("#imagemodal").modal('show');
+            }
+
+            $scope.getPhoto = function (source) {
+
+                navigator.camera.getPicture($scope.onPhotoURISuccessNew, $scope.onFail, {
+                    quality: 50,
+                    destinationType: destinationType.DATA_URL,
+                    correctOrientation: true,
+                    sourceType: pictureSource.PHOTOLIBRARY
+                });
+            }
+
+            $scope.onPhotoURISuccessNew = function (imageData) {
+
+                $(".viewimage").show();
+                $("#bottommenumodal").modal('hide');
+
+                var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
+
+                imageData = "data:image/jpeg;base64," + imageData;
+
+                var id = randomStringNew(5, '0123456789');
+                _ImgObj.ImageID = id;
+
+
+                $("#myModalforlist").modal("hide");
+
+
+                _ImgObj.FileName = "IphoneLibrary";
+                _ImgObj.bytestring = imageData;
+                $scope.ImageList.push(_ImgObj);
+                $scope.$apply();
+
+            }
+
 
         });
 </script>
 
 
-    <script>
-
-        function onPhotoURISuccessNew (imageData) {
-            var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
-
-            imageData = "data:image/jpeg;base64," + imageData;
-
-            var id = randomStringNew(5, '0123456789');
-            _ImgObj.ImageID = id;
-
-            $(".viewimage").show();
-            $("#myModalforlist").modal("hide");
-
-
-        
-            _ImgObj.bytestring = imageData;
-        
-
-        }
-
-        function getPhoto(source) {
-
-            alert("2");
-            // Retrieve image file location from specified source
-            navigator.camera.getPicture(onPhotoURISuccessNew, onFail, {
-                quality: 50,
-                destinationType: destinationType.DATA_URL,
-                correctOrientation: true,
-                sourceType: pictureSource.PHOTOLIBRARY
-            });
-        }
-       function onPhotoDataSuccessNew (imageData) {
-            var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
-
-          
-
-         
-
-
-            _ImgObj.FileName = "";
-            _ImgObj.bytestring = imageData;
-       
-       
-
-        }
-
-      function onFail (message) {
-
-            log.error('Failed because: ' + message);
-        }
-      function capturePhotoNew() {
-
-          alert("1");
-
-            navigator.camera.getPicture(onPhotoDataSuccessNew,onFail, {
-                quality: 50,
-                targetWidth: 120,
-                targeHeight: 120,
-                correctOrientation: true,
-                destinationType: destinationType.DATA_URL,
-                allowEdit: true,
-                saveToPhotoAlbum: true,
-            });
-        }
-    </script>
+    
     
 </body>
 </html>
