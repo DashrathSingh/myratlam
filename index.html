@@ -476,9 +476,94 @@
         </div>
     </div>
     </div>
+
+
+    <div data-ng-app="myApp" data-ng-controller="myCtrl">
+        <a data-ng-click="Scanitem()" href="#">content</a>
+
+        <input data-ng-model="itemscanvalue" type="text" name="name"  />
+
+        <div data-ng-repeat="obj in datalist">
+            <p> {{obj.title}} </p>
+            <p>{{obj.body}}</p>
+        </div>
+
+</div>
+
+  
     
      <script type="text/javascript" src="http://nm.myratlam.com/App/scripts/jquery-1.11.0.min.js"></script>
    <script type="text/javascript" src="cordova.js"></script>
+     <script type="text/javascript" src="barcode.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function ($scope) {
+
+
+            $scope.getdata = function () {
+                $.ajax({
+                    type: "GET",
+                    url: 'https://jsonplaceholder.typicode.com/posts',
+                   // data: JSON.stringify({ SecurityToken: $scope.SecurityToken, pageToReturn: 1, sortCol: _sortColumn, sortDir: _sortDir, filterArray: $scope.FilterArray, PageSize: _PageSize }),
+                    contentType: 'application/json',
+                    dataType: 'json',
+                    success: function (result) {
+
+                        alert("Succc");
+
+                        debugger;
+
+                        $scope.datalist = result;
+                        $scope.$apply();
+
+                        console.log($scope.datalist)
+
+                    },
+                    error: function (req) {
+                        alert("err");
+                    },
+                    complete: function () {
+                        alert("com");
+                    }
+                });
+            }
+
+            $scope.Scanitem = function () {
+
+                alert("scan1");
+
+                var scanner = cordova.plugins.barcodeScanner;
+
+                alert("scan2");
+
+                scanner.scan(function (result) {
+
+                    alert("scan3");
+
+                    $scope.itemscanvalue = result.text;
+               
+                    $scope.$apply();
+
+
+
+                }, function (error) {
+                    log.error("Scanning failed: ", error);
+                });
+            }
+
+
+            function init() {
+                $scope.getdata()
+            }
+
+
+            init();
+
+
+        });
+</script>
 
 
     <script>

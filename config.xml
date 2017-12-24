@@ -14,9 +14,7 @@
     My Ratlam
   </author>
 
-
-
-     <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.8"/>
+  <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.8"/>
   <plugin name="cordova-plugin-statusbar" source="npm"/>
   
   <plugin name="cordova-plugin-camera" source="npm" spec="~2.3.1"/>
@@ -28,14 +26,17 @@
   
   <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
   <plugin name="cordova-plugin-splashscreen"   source="npm" spec="2.1.0" />
-
+  
   <plugin name="ionic-plugin-keyboard" source="npm"/>
-  
+  <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
+  <plugin name="cordova-plugin-android-permissions" source="npm" spec="~0.10.0"/>
+  <plugin name="cordova-plugin-x-toast" source="npm" />
   <plugin name="cordova-plugin-background-app" source="npm" spec="~2.0.0" />
+  <!--<feature name="http://api.phonegap.com/1.0/camera"/>
+  <feature name="http://api.phonegap.com/1.0/file" />-->
 
-    <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1"/>
-  
   <feature name="http://api.phonegap.com/1.0/device" />
+
   <feature name="debug-server" required="true">
     <param name="domain" value="http://debug.phonegap.com"/>
     <param name="key" value="willoughby"/>
@@ -44,10 +45,8 @@
   <preference name="webviewbounce" value="true" />
   <preference name="UIWebViewBounce" value="true" />
   <preference name="DisallowOverscroll" value="false" />
-  <preference name="phonegap-version" value="cli-6.3.0" />
- 
-
-  <preference name="orientation" value="portrait" />
+  <preference name="phonegap-version"  value="cli-6.3.0" />
+  <preference name="orientation"   value="default" />
   <preference name="target-device"  value="universal" />
   <preference name="fullscreen" value="false" />
 
@@ -55,11 +54,9 @@
   <preference name="StatusBarBackgroundColor" value="#2196F3" />
   <preference name="StatusBarStyle" value="lightcontent" />
   <preference name="KeyboardDisplayRequiresUserAction" value="false" />
-<preference name="HideKeyboardFormAccessoryBar" value="true"/>
+  <preference name="HideKeyboardFormAccessoryBar" value="true"/>
   <preference name="KeyboardShrinksView" value="true" />
-  <preference name="SplashScreenDelay" value="5000"/>
-  <preference name="android-minSdkVersion"      value="14" />
-<preference name="android-targetSdkVersion"   value="23" />
+  <preference name="SplashScreenDelay" value="10000"/>
   <icon src="icon.png" />
 
   <icon src=".pgbomit/res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
