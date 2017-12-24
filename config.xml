@@ -16,6 +16,11 @@
 
 
 
+     <plugin name="phonegap-plugin-barcodescanner" source="npm"/>
+  <plugin name="cordova-plugin-statusbar" source="npm"/>
+  <plugin name="cordova-plugin-globalization" source="npm"/>
+  
+
   <plugin name="cordova-plugin-camera" source="npm" spec="*">
     <variable name="CAMERA_USAGE_DESCRIPTION" value="App would like to access the camera." />
     <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="App would like to access the library." />
@@ -24,6 +29,13 @@
   <plugin name="cordova-plugin-file" source="npm" spec="~4.1.1"/>
 
   <plugin name="cordova-plugin-file-transfer" source="npm" spec="~1.5.0"/>
+
+  <plugin name="cordova-plugin-network-information" source="npm" spec="1.0.1" />
+  <plugin name="cordova-plugin-splashscreen"   source="npm" spec="2.1.0" />
+
+  <plugin name="ionic-plugin-keyboard" source="npm"/>
+  
+  <plugin name="cordova-plugin-background-app" source="npm" spec="~2.0.0" />
 
   
   
