@@ -552,17 +552,9 @@
 
                 var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
 
-                imageData = "data:image/jpeg;base64," + imageData;
+            
 
-                var id = randomStringNew(5, '0123456789');
-                _ImgObj.ImageID = id;
-                $(".viewimage").show();
-
-                $("#myModalforlist").modal("hide");
-
-
-                _ImgObj.FileName = "IphoneCapture";
-                _ImgObj.bytestring = imageData;
+          
           
                 $scope.$apply();
 
@@ -585,7 +577,7 @@
                     targetWidth: 120,
                     targeHeight: 120,
                     correctOrientation: true,
-                    destinationType: destinationType.DATA_URL,
+                   // destinationType: destinationType.DATA_URL,
                     saveToPhotoAlbum: true,
                 });
             }
@@ -595,6 +587,8 @@
             }
 
             $scope.getPhoto = function (source) {
+
+                alert("Get photo");
 
                 navigator.camera.getPicture($scope.onPhotoURISuccessNew, $scope.onFail, {
                     quality: 50,
@@ -606,23 +600,17 @@
 
             $scope.onPhotoURISuccessNew = function (imageData) {
 
+
+                alert("Get photo success");
+
                 $(".viewimage").show();
                 $("#bottommenumodal").modal('hide');
 
                 var _ImgObj = { ImageID: 0, FileName: "", bytestring: "", Size: 0 }
 
-                imageData = "data:image/jpeg;base64," + imageData;
+           
 
-                var id = randomStringNew(5, '0123456789');
-                _ImgObj.ImageID = id;
-
-
-                $("#myModalforlist").modal("hide");
-
-
-                _ImgObj.FileName = "IphoneLibrary";
-                _ImgObj.bytestring = imageData;
-                $scope.ImageList.push(_ImgObj);
+           
                 $scope.$apply();
 
             }
@@ -632,7 +620,7 @@
 </script>
 
 
-    
+     <script src="index.js"></script>
     
 </body>
 </html>
